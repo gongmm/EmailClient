@@ -15,9 +15,7 @@ namespace EmailClient
 
     class SmtpClient
     {
-        //private static String sender = "gnaizgnaw@163.com";
-        //private static String receiver = "784325366@qq.com";
-        //private static String SMTPServer = "163.com";
+       
         private SmtpBaseClient client;
         private string host;
         private int? port;

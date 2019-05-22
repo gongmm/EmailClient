@@ -15,8 +15,9 @@ namespace EmailClient
             private SmtpClient smtpClient;
 
             [TestMethod]
-            public void Authorize()
+            public void SendWithoutSSL()
             {
+                // 初始化
                 smtpClient = new SmtpClient("smtp.163.com", 25, false);
                 //smtpClient.AuthType = AuthType.AuthPlain;
                 smtpClient.Authorize("gnaizgnaw@163.com", "610319MM");
@@ -24,8 +25,27 @@ namespace EmailClient
                 MailMessage message = new MailMessage(address, "smtpTest", "this is a test");
                 smtpClient.Send(message);
                 smtpClient.Dispose();
-                
+
             }
+
+            [TestMethod]
+            public void SendWithSSL()
+            {
+                smtpClient = new SmtpClient("smtp.163.com", 25, true);
+                //smtpClient.AuthType = AuthType.AuthPlain;
+                smtpClient.Authorize("gnaizgnaw@163.com", "610319MM");
+                
+                String mailTo = "784325366@qq.com";
+                String targetName = "wangziang";
+                String subject = "smtpTest";
+                String body = "this is a test with ssl";
+
+                smtpClient.Send(mailTo, targetName, subject, body);
+                smtpClient.Dispose();
+
+            }
+
+
         }
     }
 }
