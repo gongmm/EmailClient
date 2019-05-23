@@ -59,6 +59,7 @@
     <Compile Include="Entity\Email.cs" />
     <Compile Include="Model\MailAddress.cs" />
     <Compile Include="Model\MailMessage.cs" />
+    <Compile Include="Resources\CustomWindowStyle.cs" />
     <Compile Include="SmtpUtil\SmtpBaseClient.cs" />
     <Compile Include="SmtpUtil\SmtpCode.cs" />
     <Compile Include="SmtpUtil\SmtpException.cs" />

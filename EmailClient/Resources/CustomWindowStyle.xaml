@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:EmailClient.Resources">
+                    xmlns:local="clr-namespace:EmailClient.Resources"
+                    x:Class="EmailClient.Resources.CustomWindowStyle">
     <Color x:Key="lightest">#D1EDE1</Color>
     <Color x:Key="lighter">#7BC5AE</Color>
     <Color x:Key="deeper">#028C6A</Color>
@@ -157,7 +158,7 @@
                       ></Button>
                         <Button Grid.Column="4" Style="{StaticResource MaximumButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
                       ></Button>
-                        <Button Grid.Column="5" Style="{StaticResource CloseButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                    <Button  Click="cmdClose_Click" Grid.Column="5" Style="{StaticResource CloseButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
                       ></Button>
                     </Grid>
                     <!--收发邮件详细内容-->

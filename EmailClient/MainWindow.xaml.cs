@@ -34,6 +34,10 @@ namespace EmailClient
             this.CleanButton.Visibility = Visibility.Visible;
             this.CleanButton.IsEnabled = true;
         }
+        private void closeWindow(object sender, RoutedEventArgs e)
+        {
+            
+        }
         private void changeSelection(object sender, RoutedEventArgs e)
         {
             Email email=(Email)this.receiveBox.SelectedItem;
