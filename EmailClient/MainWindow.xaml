@@ -5,8 +5,245 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EmailClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+       AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"
+        Template="{StaticResource WindowTemplate}"
+         Title="EmailClient" Height="450" Width="800"
+      WindowStartupLocation="CenterScreen" >
+    <!-- AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"-->
+    <Window.Resources>
+
+        <GeometryGroup x:Key="CircleClip" FillRule="Nonzero">
+            <EllipseGeometry RadiusX="22" RadiusY="22" Center="24,24"/>
+        </GeometryGroup>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--左部工具栏-->
+        <!--ListBox Margin="0,0,0,0"  Grid.Column="0" Background="{StaticResource deepestBrush}"  -->
+        <StackPanel Background="{StaticResource deepestBrush}" Name="guide">
+            <!--头像和新邮件-->
+                <!--ListBoxItem Template="{StaticResource NormalItemButton}"-->
+            <Grid Name="add">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Template="{StaticResource NormalButton}">
+                    <Canvas Width="50" Height="50">
+                        <Path Name="circle" Stroke="White" StrokeThickness="3">
+                            <Path.Data>
+                                <EllipseGeometry RadiusX="8" RadiusY="8" Center="25,20"/>
+                            </Path.Data>
+                        </Path>
+                        <Path Name="arc" Stroke="White" StrokeThickness="3">
+                            <Path.Data>
+                                <PathGeometry>
+                                    <PathFigure IsClosed="False" StartPoint="15,43">
+                                        <ArcSegment Point="35,43" Size="10,10" SweepDirection="Clockwise" />
+                                    </PathFigure>
+                                </PathGeometry>
+                            </Path.Data>
+                        </Path>
+                    </Canvas>
+                </Button >
+                <StackPanel Width="100" Height="50" Grid.Column="1"></StackPanel>
+                <Button Click="createNewEmail" Grid.Column="2" Template="{StaticResource NormalButton}">
+                    <!--Canvas  Width="50" Height="50">
+                        <Path Name="line1" Stroke="White" StrokeThickness="1">
+                            <Path.Data>
+                                <LineGeometry StartPoint="15,25" EndPoint="35,25"></LineGeometry>
+                            </Path.Data>
+                        </Path>
+                        <Path Name="line2" Stroke="White" StrokeThickness="1">
+                            <Path.Data>
+                                <LineGeometry StartPoint="25,15" EndPoint="25,35"></LineGeometry>
+                            </Path.Data>
+                        </Path>
+                    </Canvas-->
+                    <Image Source="Images/add.png" Margin="5"  Width="30"></Image>
+                </Button>
+            </Grid>
+            <Grid Name="boxTitle">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Margin="0,0,0,0" Template="{StaticResource NormalButton}" Padding="10" FontSize="15" FontWeight="Light" Foreground="White">
+                    收 件 箱
+                </Button>
+                <Button Grid.Column="2" Template="{StaticResource NormalButton}">
+                    <Image Source="Images/update.png" Margin="5"  Width="30"></Image>
+                    <!--Canvas Width="50" Height="40">
+                        <Path Name="refresh1" Stroke="White" StrokeThickness="1">
+                            <Path.Data>
+                                <PathGeometry>
+                                    <PathFigure IsClosed="False" StartPoint="15,20">
+                                        <ArcSegment Point="35,10" Size="13,13" SweepDirection="Clockwise" />
+                                    </PathFigure>
+                                </PathGeometry>
+                            </Path.Data>
+                        </Path>
+                        <Path Name="refresh2" Stroke="White" StrokeThickness="1">
+                            <Path.Data>
+                                <PathGeometry>
+                                    <PathFigure IsClosed="False" StartPoint="17,26">
+                                        <ArcSegment Point="38,16" Size="13,13" SweepDirection="Counterclockwise" />
+                                    </PathFigure>
+                                </PathGeometry>
+                            </Path.Data>
+                        </Path>
+                        <Path Name="d1" Stroke="White" StrokeThickness="1">
+                            <Path.Data>
+                                <LineGeometry StartPoint="15,20" EndPoint="23,16"></LineGeometry>
+                            </Path.Data>
+                        </Path>
+                        <Path Name="d2" Stroke="White" StrokeThickness="1">
+                            <Path.Data>
+                                <LineGeometry StartPoint="15,20" EndPoint="11,13"></LineGeometry>
+                            </Path.Data>
+                        </Path>
+                        <Path Name="d3" Stroke="White" StrokeThickness="1">
+                            <Path.Data>
+                                <LineGeometry StartPoint="38,16" EndPoint="42,23"></LineGeometry>
+                            </Path.Data>
+                        </Path>
+                        <Path Name="d4" Stroke="White" StrokeThickness="1">
+                            <Path.Data>
+                                <LineGeometry StartPoint="38,16" EndPoint="30,20"></LineGeometry>
+                            </Path.Data>
+                        </Path>
+                    </Canvas-->
+                </Button>
+            </Grid>
+            <!--/ListBoxItem-->
+            <Grid Name="emails" Height="330">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListBox SelectionChanged="changeSelection" BorderThickness="0" Name="receiveBox" Background="{StaticResource deepestBrush}"
+                         ItemTemplate="{StaticResource ReceiveItemData}"  HorizontalContentAlignment="Stretch">
+                        <ListBox.ItemContainerStyle>
+                            <Style>
+                                <Setter Property="ListBoxItem.Template" Value="{StaticResource listItem}"/>
+                                <Setter Property="Control.Padding" Value="0"></Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                                        <Setter Property="ListBoxItem.Background" Value="{StaticResource lightestBrush}" />
+                                    </Trigger>
+                                    <Trigger Property="ListBoxItem.IsMouseOver" Value="True">
+                                        <Setter Property="ListBoxItem.Background" Value="{StaticResource lightestBrush}" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                </ScrollViewer>
+            </Grid>
+        </StackPanel>
+     
+        <!--右部详细信息-->
+        <Grid Name="display" Background="White" Grid.Column="1" Margin="0,0,0,0" >
+            <!--DataContext="{Binding ElementName=receiveBox, Path=SelectedItem}"-->
+                <Border Margin="20,20,20,20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <!--字体及颜色选项-->
+                    <Grid  Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="2" Name="SendButton" IsEnabled="False" Visibility="Hidden" Template="{StaticResource NormalButton}">
+                            <Image Source="Images/send.png" Margin="5"  Width="30"></Image>
+                        </Button>
+                        <Button Grid.Column="1" Name="CleanButton" IsEnabled="False" Visibility="Hidden" Template="{StaticResource NormalButton}">
+                            <Image Source="Images/clean.png" Margin="5"  Width="30"></Image>
+                        </Button>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Margin="5" Foreground="Gray" FontSize="15">发 件 人 :</Label>
+                        <!--发件人输入框-->
+                        <Grid Grid.Column="1"  Margin="10,0,50,0" >
+                            <TextBox Name="SenderText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
+                            <!--Text="{Binding Path=Sender}"-->
+                                <Canvas ClipToBounds="True">
+                                <Path Stroke="Gray" StrokeThickness="0.5">
+                                    <Path.Data>
+                                        <LineGeometry StartPoint="0,30" EndPoint="500,30"></LineGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Margin="5" Foreground="Gray" FontSize="15">收 件 人 :</Label>
+                        <!--收件人输入框-->
+                        <Grid Grid.Column="1"  Margin="10,0,50,0" >
+                            <TextBox Name="ReceiveText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black"  ></TextBox>
+                            <!---->
+                                <Canvas ClipToBounds="True">
+                                <Path Stroke="Gray" StrokeThickness="0.5">
+                                    <Path.Data>
+                                        <LineGeometry StartPoint="0,30" EndPoint="500,30"></LineGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Margin="5" Foreground="Gray" FontSize="15">主 题 : </Label>
+                        <!--主题输入框-->
+                        <Grid Grid.Column="1"  Margin="30,0,50,0" >
+                            <TextBox Name="TopicText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
+                            <!-- Text="{Binding Path=Content}"-->
+                                <Canvas ClipToBounds="True">
+                                <Path Stroke="Gray" StrokeThickness="0.5">
+                                    <Path.Data>
+                                        <LineGeometry StartPoint="0,30" EndPoint="500,30"></LineGeometry>
+                                    </Path.Data>
+                                </Path>
+                            </Canvas>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="4">
+                        <!--内容输入框-->
+                        
+                            <!--Border Background="Gray" BorderThickness="2"  >
+                            <Grid -->
+                                <TextBox Name="ContentText" ClipToBounds="True" BorderBrush="Gray" BorderThickness="0" Padding="6" TextWrapping="Wrap"  FontSize="15" Foreground="Black"></TextBox>
+                        <!-- Text="{Binding Path=Content}"-->
+                            <!--/Grid>
+                        </Border-->
+                        
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

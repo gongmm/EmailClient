@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:EmailClient"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CustomButtonStyle.xaml"/>
+                <ResourceDictionary Source="Resources/CustomButtonTemplate.xaml"/>
+                <ResourceDictionary Source="Resources/CustomDataTemplate.xaml"/>
+                <ResourceDictionary Source="Resources/CustomBrushes.xaml"/>
+                <ResourceDictionary Source="Resources/CustomWindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
