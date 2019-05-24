@@ -2,14 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:EmailClient.Resources"
                     x:Class="EmailClient.Resources.CustomWindowStyle">
-    <Color x:Key="lightest">#D1EDE1</Color>
-    <Color x:Key="lighter">#7BC5AE</Color>
-    <Color x:Key="deeper">#028C6A</Color>
-    <Color x:Key="deepest">#003E19</Color>
-    <SolidColorBrush x:Key="lightestBrush" >#D1EDE1</SolidColorBrush>
-    <SolidColorBrush x:Key="lighterBrush" >#7BC5AE</SolidColorBrush>
-    <SolidColorBrush x:Key="deeperBrush" >#028C6A</SolidColorBrush>
-    <SolidColorBrush x:Key="deepestBrush" >#003E19</SolidColorBrush>
+    <Color x:Key="lightest">#6A94D4</Color>
+    <Color x:Key="lighter">#437DD4</Color>
+    <Color x:Key="deeper">#0F4DA8</Color>
+    <Color x:Key="deepest">#052F6D</Color>
+    <SolidColorBrush x:Key="lightestBrush" >#6A94D4</SolidColorBrush>
+    <SolidColorBrush x:Key="lighterBrush" >#437DD4</SolidColorBrush>
+    <SolidColorBrush x:Key="deeperBrush" >#0F4DA8</SolidColorBrush>
+    <SolidColorBrush x:Key="deepestBrush" >#052F6D</SolidColorBrush>
     <!--关闭按钮-->
         <Style x:Key="CloseButton">
         <Setter Property="Button.Template">

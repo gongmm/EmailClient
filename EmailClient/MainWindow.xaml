@@ -126,8 +126,9 @@
             <Grid Name="emails" Height="330">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListBox SelectionChanged="changeSelection" BorderThickness="0" Name="receiveBox" Background="{StaticResource deepestBrush}"
-                         ItemTemplate="{StaticResource ReceiveItemData}"  HorizontalContentAlignment="Stretch">
-                        <ListBox.ItemContainerStyle>
+                         HorizontalContentAlignment="Stretch">
+                        <!-- ItemTemplate="{StaticResource ReceiveItemData}"-->
+                            <ListBox.ItemContainerStyle>
                             <Style>
                                 <Setter Property="ListBoxItem.Template" Value="{StaticResource listItem}"/>
                                 <Setter Property="Control.Padding" Value="0"></Setter>

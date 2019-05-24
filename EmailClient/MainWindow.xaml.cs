@@ -184,6 +184,6 @@ namespace EmailClient
             this.emailList = emails;
             this.receiveBox.ItemsSource = emails;
         }
-
+        
     }
 }
