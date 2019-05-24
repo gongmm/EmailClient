@@ -25,9 +25,11 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Padding="5" Name="sender" FontWeight="Bold" Foreground="{StaticResource lightestBrush}" Text="{Binding Path=Sender}"></TextBlock>
-                        <TextBlock Padding="5" Name="content" Grid.Row="1" Foreground="{StaticResource lightestBrush}" Text="{Binding Path=ContentBrief}"></TextBlock>
+                        <TextBlock Padding="5" FontSize="15" Name="sender" Foreground="{StaticResource lightestBrush}" Text="{Binding Path=Sender}"></TextBlock>
+                        <TextBlock Padding="5" Name="topic" Grid.Row="1"  FontWeight="Bold" Foreground="{StaticResource lightestBrush}" Text="{Binding Path=Topic}"></TextBlock>
+                        <TextBlock Padding="5" FontSize="13" Name="content" Grid.Row="2" Foreground="{StaticResource lightestBrush}" Text="{Binding Path=ContentBrief}"></TextBlock>
                     </Grid>
                 </Grid>
                 <!--ContentPresenter Margin="{TemplateBinding ListBoxItem.Padding}" ContentTemplate="{StaticResource ReceiveItemData}" Content="{TemplateBinding ListBoxItem.Content}"></ContentPresenter-->

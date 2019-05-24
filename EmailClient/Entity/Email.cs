@@ -9,6 +9,8 @@ namespace EmailClient.Entity
     class Email
     {
         public String Sender { get; set; }
+        public String Receiver { get; set; }
+        public String Topic { get; set; }
         public String Content{ get; set;}
         public String ContentBrief { get; set; }
     }

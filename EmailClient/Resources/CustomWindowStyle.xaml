@@ -133,7 +133,7 @@
 
     <ControlTemplate x:Key="WindowTemplate" TargetType="{x:Type Window}">
         <Border Width="Auto" Height="Auto" Name="windowFrame"    
-          BorderBrush="{StaticResource lightestBrush}"
+          BorderBrush="{StaticResource lightestBrush}" BorderThickness="2"
         >
             <Grid>
                 <Grid.RowDefinitions>
