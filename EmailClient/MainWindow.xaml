@@ -148,63 +148,75 @@
         </StackPanel>
      
         <!--右部详细信息-->
-        <Grid Name="display" Background="White" Grid.Column="1" Margin="0,0,0,0" >
+        <Grid  Name="display" Background="White" Grid.Column="1" Margin="0,0,0,0" >
+            
             <!--DataContext="{Binding ElementName=receiveBox, Path=SelectedItem}"-->
-                <Border Margin="20,20,20,20">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <!--字体及颜色选项-->
-                    <Grid  Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <!--清空按钮-->
-                        <Button Click="cleanEmail" Grid.Column="1" Name="CleanButton" Template="{StaticResource NormalButton}">
-                            <Image Source="Images/clean.png" Margin="5"  Width="30"></Image>
-                        </Button>
-                        <!--发送按钮-->
+            <Grid>
+                <Border Margin="20,20,20,20" Name="noUser" Visibility="Visible">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Width="130"  Source="Images/defaultPage.png"/>
+                        <Label></Label>
+                    </Grid>
+                </Border>
+                <Border Margin="20,20,20,20" Name="hasUser" Visibility="Hidden">
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <!--字体及颜色选项-->
+                        <Grid  Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <!--清空按钮-->
+                            <Button Click="cleanEmail" Grid.Column="1" Name="CleanButton" Template="{StaticResource NormalButton}">
+                                <Image Source="Images/clean.png" Margin="5"  Width="30"></Image>
+                            </Button>
+                            <!--发送按钮-->
                             <Button Click="sendEmailWithoutSSL" Grid.Column="2" Name="SendButton"  Template="{StaticResource NormalButton}">
-                            <Image Source="Images/send.png" Margin="5"  Width="30"></Image>
-                        </Button>
-                       
-                    </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Label Margin="5" Foreground="Gray"  FontFamily="Microsoft YaHei" FontSize="15">发件人 :</Label>
-                        <!--发件人输入框-->
-                        <Grid Grid.Column="1"  Margin="10,0,75,0" >
-                            <TextBox  FontFamily="Microsoft YaHei" Name="SenderText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
-                            <!--Text="{Binding Path=Sender}"-->
-                                <Canvas ClipToBounds="True">
-                                <Path Stroke="Gray" StrokeThickness="0.5">
-                                    <Path.Data>
-                                        <LineGeometry StartPoint="0,30" EndPoint="500,30"></LineGeometry>
-                                    </Path.Data>
-                                </Path>
-                            </Canvas>
+                                <Image Source="Images/send.png" Margin="5"  Width="30"></Image>
+                            </Button>
+
                         </Grid>
-                    </Grid>
-                    <Grid Grid.Row="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Label Margin="5" Foreground="Gray"  FontFamily="Microsoft YaHei" FontSize="15">收件人 :</Label>
-                        <!--收件人输入框-->
-                        <Grid Grid.Column="1"  Margin="10,0,75,0" >
-                            <TextBox  FontFamily="Microsoft YaHei" Name="ReceiveText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black"  ></TextBox>
-                            <!---->
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Margin="5" Foreground="Gray"  FontFamily="Microsoft YaHei" FontSize="15">发件人 :</Label>
+                            <!--发件人输入框-->
+                            <Grid Grid.Column="1"  Margin="10,0,10,0" >
+                                <TextBox IsReadOnly="True"  FontFamily="Microsoft YaHei" Name="SenderText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
+                                <!--Text="{Binding Path=Sender}"-->
+                                <Canvas ClipToBounds="True">
+                                    <Path Stroke="Gray" StrokeThickness="0.5">
+                                        <Path.Data>
+                                            <LineGeometry StartPoint="0,30" EndPoint="500,30"></LineGeometry>
+                                        </Path.Data>
+                                    </Path>
+                                </Canvas>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Margin="5" Foreground="Gray"  FontFamily="Microsoft YaHei" FontSize="15">收件人 :</Label>
+                            <!--收件人输入框-->
+                            <Grid Grid.Column="1"  Margin="10,0,10,0" >
+                                <TextBox  FontFamily="Microsoft YaHei" Name="ReceiveText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black"  ></TextBox>
+                                <!---->
                                 <Canvas ClipToBounds="True">
                                 <Path Stroke="Gray" StrokeThickness="0.5">
                                     <Path.Data>
@@ -221,31 +233,32 @@
                         </Grid.ColumnDefinitions>
                         <Label Margin="5"  FontFamily="Microsoft YaHei" Foreground="Gray" FontSize="15">主题 : </Label>
                         <!--主题输入框-->
-                        <Grid Grid.Column="1"  Margin="24,0,75,0" >
-                                <TextBox  FontFamily="Microsoft YaHei" Name="TopicText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
-                            <!-- Text="{Binding Path=Content}"-->
-                                <Canvas  ClipToBounds="True">
-                                <Path Stroke="Gray" StrokeThickness="0.5">
-                                    <Path.Data>
-                                        <LineGeometry StartPoint="0,30" EndPoint="500,30"></LineGeometry>
-                                    </Path.Data>
-                                </Path>
-                            </Canvas>
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="4">
-                        <!--内容输入框-->
-                        
-                            <!--Border Background="Gray" BorderThickness="2"  >
+                                <Grid Grid.Column="1"  Margin="24,0,10,0" >
+                                    <TextBox  FontFamily="Microsoft YaHei" Name="TopicText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
+                                    <!-- Text="{Binding Path=Content}"-->
+                                    <Canvas  ClipToBounds="True">
+                                        <Path Stroke="Gray" StrokeThickness="0.5">
+                                            <Path.Data>
+                                                <LineGeometry StartPoint="0,30" EndPoint="500,30"></LineGeometry>
+                                            </Path.Data>
+                                        </Path>
+                                    </Canvas>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="4">
+                                <!--内容输入框-->
+
+                                <!--Border Background="Gray" BorderThickness="2"  >
                             <Grid -->
-                            <TextBox  FontFamily="Microsoft YaHei" Name="ContentText" ClipToBounds="True" BorderBrush="Gray" BorderThickness="0" Padding="6" TextWrapping="Wrap"  FontSize="15" Foreground="Black"></TextBox>
-                        <!-- Text="{Binding Path=Content}"-->
-                            <!--/Grid>
+                                <TextBox  FontFamily="Microsoft YaHei" Name="ContentText" ClipToBounds="True" BorderBrush="Gray" BorderThickness="0" Padding="6" TextWrapping="Wrap"  FontSize="15" Foreground="Black"></TextBox>
+                                <!-- Text="{Binding Path=Content}"-->
+                                <!--/Grid>
                         </Border-->
-                        
-                    </Grid>
-                </Grid>
-            </Border>
+
+                            </Grid>
+                        </Grid>
+                </Border>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

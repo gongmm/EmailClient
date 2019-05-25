@@ -32,8 +32,20 @@ namespace EmailClient.windows
         }
         private void login(object sender, RoutedEventArgs e)
         {
-            user = this.Input.Text;
+            user = this.userName.Text;
+            String keyword = this.keyword.Text;
+            String serverName = this.serverName.Text;
             parent.setUser(user);
+            parent.setKeyword(keyword);
+            parent.setServer(serverName);
+            bool result=parent.Authorize();
+            if (result == false) {
+                parent.setLoginStatus(false);
+                Attention attention = new Attention("登 陆 失 败");
+                attention.ShowDialog();
+                return;
+            }
+            parent.setLoginStatus(true);
             this.Close();
         }
     }

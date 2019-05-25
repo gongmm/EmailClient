@@ -26,18 +26,58 @@ namespace EmailClient
         public double normalleft;
         public double normalwidth;
         public double normalheight;
-        private String server="smtp.163.com";
         private int port = 25;
         private List<Email> emailList=null;
         private String user = null;
+        private String keyword = null;
+        private String server = null;
+        private bool hasLogin = false;
+        private SmtpClient client = null;
+        public void setLoginStatus(bool status)
+        {
+            this.hasLogin = status;
+            if (status)
+            {
+                this.UserLogin.Text = user;
+            }
+            else {
+                this.UserLogin.Text = "未登录";
+            }
+        }
         public void setUser(String user) {
             this.user = user;
-            if(user!=null)
-            this.UserLogin.Text = user;
+        }
+        public void setKeyword(String keyword)
+        {
+            this.keyword = keyword;
+        }
+        public void setServer(String server)
+        {
+            this.server = server;
         }
         public void setScroller(double height) {
             this.emails.Height = height;
         }
+        public bool Authorize() {
+            this.SenderText.Text = user;
+            SmtpClient smtpClient = null;
+            try
+            {
+                smtpClient = new SmtpClient(server, port, true);
+           
+                smtpClient.Authorize(user, keyword);
+            }
+            catch (Exception ex) {
+                this.noUser.Visibility = Visibility.Visible;
+                this.hasUser.Visibility = Visibility.Hidden;
+                return false;
+            }
+            this.client = smtpClient;
+
+            this.noUser.Visibility = Visibility.Hidden;
+            this.hasUser.Visibility = Visibility.Visible;
+            return true;
+            }
         private void previewMouseWheel(object sender, MouseWheelEventArgs e)
         {
             ScrollViewer viewer = scrollviewer;  //scrollview 为Scrollview的名字，在Xaml文件中定义。
@@ -62,17 +102,17 @@ namespace EmailClient
         
              private void sendEmailWithoutSSL(object sender, RoutedEventArgs e)
         {
-            String sendAddr = this.SenderText.Text;
+           /* String sendAddr = this.SenderText.Text;
             String receiveAddr = this.ReceiveText.Text;
             String topic = this.TopicText.Text;
-            String content = this.ContentText.Text;
+            String content = this.ContentText.Text;*/
          
             
-                SmtpClient smtpClient = new SmtpClient(server, port, true);
-            Attention error = null;
+             //   SmtpClient smtpClient = new SmtpClient(server, port, true);
+          /*  Attention error = null;
             try
             {
-                smtpClient.Authorize("gnaizgnaw@163.com", "610319MM");
+                smtpClient.Authorize(user, keyword);
             }
             catch (SmtpException.ConnectionFaildException ex) {
                 error = new Attention("连 接 失 败！");
@@ -83,20 +123,29 @@ namespace EmailClient
                 error = new Attention("验 证 失 败！");
                 error.ShowDialog();
                 return;
-            }
+            }*/
 
-                MailAddress address = new MailAddress(receiveAddr);
-                MailMessage message = new MailMessage(address, topic, content);
+                MailAddress address = new MailAddress(this.ReceiveText.Text);
+                MailMessage message = new MailMessage(address, this.TopicText.Text, this.ContentText.Text);
+            Attention error = null;
+            if (this.client == null) {
+                error = new Attention("请 先 登 录！");
+                error.ShowDialog();
+                //  InputWindow input = new InputWindow(this);
+                //input.ShowDialog();
+                return;
+            }
+                
             try
             {
-                smtpClient.Send(message);
+                this.client.Send(message);
             }
             catch (Exception ex) {
                 error = new Attention("发 送 失 败！");
                 error.ShowDialog();
                 return;
             }
-                smtpClient.Dispose(); 
+             //   smtpClient.Dispose(); 
             Attention success = new Attention("发 送 成 功！");
             success.ShowDialog();
         }
