@@ -33,7 +33,7 @@ namespace EmailClient.windows
         private void login(object sender, RoutedEventArgs e)
         {
             user = this.userName.Text;
-            String keyword = this.keyword.Text;
+            String keyword = this.keyword.Password;
             String serverName = this.serverName.Text;
             parent.setUser(user);
             parent.setKeyword(keyword);

@@ -46,7 +46,7 @@
                 </Grid.ColumnDefinitions>
                 <Label >密 码：</Label>
                 <Grid Grid.Column="1" Margin="10,0,0,0">
-                    <TextBox  FontFamily="Microsoft YaHei" Name="keyword" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
+                    <PasswordBox  FontFamily="Microsoft YaHei" Name="keyword" BorderBrush="White" BorderThickness="0" Padding="6"  FontSize="15" Foreground="Black" ></PasswordBox>
                     <Canvas ClipToBounds="True">
                         <Path Stroke="Gray" StrokeThickness="0.5">
                             <Path.Data>

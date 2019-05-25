@@ -155,11 +155,12 @@
                 <Border Margin="20,20,20,20" Name="noUser" Visibility="Visible">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Image Width="130"  Source="Images/defaultPage.png"/>
-                        <Label></Label>
+                        <Image Width="130" Margin="0,100,0,0" Source="Images/defaultPage.png"/>
+                        <Label FontSize="17"  FontFamily="Microsoft YaHei" HorizontalContentAlignment="Center"  Grid.Row="1">没有可显示的内容</Label>
                     </Grid>
                 </Border>
                 <Border Margin="20,20,20,20" Name="hasUser" Visibility="Hidden">

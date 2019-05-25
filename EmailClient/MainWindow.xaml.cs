@@ -135,19 +135,30 @@ namespace EmailClient
                 //input.ShowDialog();
                 return;
             }
-                
-            try
-            {
-                this.client.Send(message);
+            bool success = false;
+            for (int i=0;i<2;i++) {
+                try
+                {
+
+                    this.client.Send(message);
+                }
+                catch (Exception ex) {
+                    client = new SmtpClient(server, port, true);
+                    client.Authorize(user, keyword);
+                    continue;
+                }
+                success = true;
+                break;
             }
-            catch (Exception ex) {
+            if (success == false)
+            {
                 error = new Attention("发 送 失 败！");
                 error.ShowDialog();
                 return;
             }
-             //   smtpClient.Dispose(); 
-            Attention success = new Attention("发 送 成 功！");
-            success.ShowDialog();
+            //   smtpClient.Dispose(); 
+            Attention successReturn = new Attention("发 送 成 功！");
+            successReturn.ShowDialog();
         }
             private void Login(object sender, RoutedEventArgs e)
         {
