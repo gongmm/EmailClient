@@ -80,46 +80,7 @@
                 </Button>
                 <Button Grid.Column="2" Template="{StaticResource NormalButton}">
                     <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="Images/update.png" Margin="10"  Width="20"></Image>
-                    <!--Canvas Width="50" Height="40">
-                        <Path Name="refresh1" Stroke="White" StrokeThickness="1">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure IsClosed="False" StartPoint="15,20">
-                                        <ArcSegment Point="35,10" Size="13,13" SweepDirection="Clockwise" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                        <Path Name="refresh2" Stroke="White" StrokeThickness="1">
-                            <Path.Data>
-                                <PathGeometry>
-                                    <PathFigure IsClosed="False" StartPoint="17,26">
-                                        <ArcSegment Point="38,16" Size="13,13" SweepDirection="Counterclockwise" />
-                                    </PathFigure>
-                                </PathGeometry>
-                            </Path.Data>
-                        </Path>
-                        <Path Name="d1" Stroke="White" StrokeThickness="1">
-                            <Path.Data>
-                                <LineGeometry StartPoint="15,20" EndPoint="23,16"></LineGeometry>
-                            </Path.Data>
-                        </Path>
-                        <Path Name="d2" Stroke="White" StrokeThickness="1">
-                            <Path.Data>
-                                <LineGeometry StartPoint="15,20" EndPoint="11,13"></LineGeometry>
-                            </Path.Data>
-                        </Path>
-                        <Path Name="d3" Stroke="White" StrokeThickness="1">
-                            <Path.Data>
-                                <LineGeometry StartPoint="38,16" EndPoint="42,23"></LineGeometry>
-                            </Path.Data>
-                        </Path>
-                        <Path Name="d4" Stroke="White" StrokeThickness="1">
-                            <Path.Data>
-                                <LineGeometry StartPoint="38,16" EndPoint="30,20"></LineGeometry>
-                            </Path.Data>
-                        </Path>
-                    </Canvas-->
+                   
                 </Button>
             </Grid>
             <!--/ListBoxItem-->

@@ -46,6 +46,10 @@ namespace EmailClient
             if (status)
             {
                 this.UserLogin.Text = user;
+                this.SendButton.Visibility = Visibility.Visible;
+                this.SendButton.IsEnabled = true;
+                this.CleanButton.Visibility = Visibility.Visible;
+                this.CleanButton.IsEnabled = true;
             }
             else {
                 this.UserLogin.Text = "未登录";
