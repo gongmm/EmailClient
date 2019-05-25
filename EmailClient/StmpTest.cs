@@ -20,10 +20,32 @@ namespace EmailClient
                 // 初始化
                 smtpClient = new SmtpClient("smtp.163.com", 25, false);
                 //smtpClient.AuthType = AuthType.AuthPlain;
-                smtpClient.Authorize("gnaizgnaw@163.com", "610319MM");
+                try
+                {
+                    smtpClient.Authorize("gnaizgnaw@163.com", "wrongPassword");
+                }
+                catch(Exception e)
+                {
+                    if (e is SmtpException.ConnectionFaildException)
+                        Console.WriteLine(e.ToString());
+                    if (e is SmtpException.AuthFaildException)
+                        Console.WriteLine(e.ToString());
+                }
+                
                 MailAddress address = new MailAddress("784325366@qq.com");
                 MailMessage message = new MailMessage(address, "smtpTest", "this is a test");
-                smtpClient.Send(message);
+
+                try
+                {
+                    smtpClient.Send(message);
+
+                }
+                catch (Exception e)
+                {
+                    if (e is SmtpException.AuthFaildException)
+                        Console.WriteLine(e.ToString());
+                   
+                }
                 smtpClient.Dispose();
 
             }
@@ -33,7 +55,7 @@ namespace EmailClient
             {
                 smtpClient = new SmtpClient("smtp.163.com", 25, true);
                 //smtpClient.AuthType = AuthType.AuthPlain;
-                smtpClient.Authorize("gnaizgnaw@163.com", "610319MM");
+                smtpClient.Authorize("gnaizgnaw@163.com", "password");
                 
                 String mailTo = "784325366@qq.com";
                 String targetName = "wangziang";
