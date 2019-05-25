@@ -30,6 +30,28 @@ namespace EmailClient
             if(user!=null)
             this.UserLogin.Text = user;
         }
+        private void previewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            ScrollViewer viewer = scrollviewer;  //scrollview 为Scrollview的名字，在Xaml文件中定义。
+            if (viewer == null)
+                return;
+            double num = Math.Abs((int)(e.Delta / 2));
+            double offset = 0.0;
+            if (e.Delta > 0)
+            {
+                offset = Math.Max((double)0.0, (double)(viewer.VerticalOffset - num));
+            }
+            else
+            {
+                offset = Math.Min(viewer.ScrollableHeight, viewer.VerticalOffset + num);
+            }
+            if (offset != viewer.VerticalOffset)
+            {
+                viewer.ScrollToVerticalOffset(offset);
+                e.Handled = true;
+            }
+        }
+        
              private void sendEmailWithoutSSL(object sender, RoutedEventArgs e)
         {
             String sendAddr = this.SenderText.Text;

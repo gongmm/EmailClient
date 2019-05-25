@@ -75,11 +75,11 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Margin="0,0,0,0" Template="{StaticResource NormalButton}" Padding="10" FontSize="15" FontWeight="Light" Foreground="White">
+                <Button Margin="0,0,0,0" Template="{StaticResource NormalButton}" FontFamily="Microsoft YaHei" Padding="10" FontSize="15" FontWeight="Light" Foreground="White">
                     收 件 箱
                 </Button>
                 <Button Grid.Column="2" Template="{StaticResource NormalButton}">
-                    <Image Source="Images/update.png" Margin="5"  Width="30"></Image>
+                    <Image Source="Images/update.png" Margin="10"  Width="20"></Image>
                     <!--Canvas Width="50" Height="40">
                         <Path Name="refresh1" Stroke="White" StrokeThickness="1">
                             <Path.Data>
@@ -124,7 +124,7 @@
             </Grid>
             <!--/ListBoxItem-->
             <Grid Name="emails" Height="330">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <ScrollViewer Name="scrollviewer" PreviewMouseWheel ="previewMouseWheel"  VerticalScrollBarVisibility="Hidden">
                     <ListBox SelectionChanged="changeSelection" BorderThickness="0" Name="receiveBox" Background="{StaticResource deepestBrush}"
                          HorizontalContentAlignment="Stretch">
                         <!-- ItemTemplate="{StaticResource ReceiveItemData}"-->
@@ -181,10 +181,10 @@
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Label Margin="5" Foreground="Gray" FontSize="15">发 件 人 :</Label>
+                        <Label Margin="5" Foreground="Gray"  FontFamily="Microsoft YaHei" FontSize="15">发件人 :</Label>
                         <!--发件人输入框-->
                         <Grid Grid.Column="1"  Margin="10,0,50,0" >
-                            <TextBox Name="SenderText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
+                            <TextBox  FontFamily="Microsoft YaHei" Name="SenderText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
                             <!--Text="{Binding Path=Sender}"-->
                                 <Canvas ClipToBounds="True">
                                 <Path Stroke="Gray" StrokeThickness="0.5">
@@ -200,10 +200,10 @@
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Label Margin="5" Foreground="Gray" FontSize="15">收 件 人 :</Label>
+                        <Label Margin="5" Foreground="Gray"  FontFamily="Microsoft YaHei" FontSize="15">收件人 :</Label>
                         <!--收件人输入框-->
                         <Grid Grid.Column="1"  Margin="10,0,50,0" >
-                            <TextBox Name="ReceiveText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black"  ></TextBox>
+                            <TextBox  FontFamily="Microsoft YaHei" Name="ReceiveText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black"  ></TextBox>
                             <!---->
                                 <Canvas ClipToBounds="True">
                                 <Path Stroke="Gray" StrokeThickness="0.5">
@@ -219,10 +219,10 @@
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Label Margin="5" Foreground="Gray" FontSize="15">主 题 : </Label>
+                        <Label Margin="5"  FontFamily="Microsoft YaHei" Foreground="Gray" FontSize="15">主题 : </Label>
                         <!--主题输入框-->
                         <Grid Grid.Column="1"  Margin="30,0,50,0" >
-                            <TextBox Name="TopicText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
+                                <TextBox  FontFamily="Microsoft YaHei" Name="TopicText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
                             <!-- Text="{Binding Path=Content}"-->
                                 <Canvas ClipToBounds="True">
                                 <Path Stroke="Gray" StrokeThickness="0.5">
@@ -238,7 +238,7 @@
                         
                             <!--Border Background="Gray" BorderThickness="2"  >
                             <Grid -->
-                                <TextBox Name="ContentText" ClipToBounds="True" BorderBrush="Gray" BorderThickness="0" Padding="6" TextWrapping="Wrap"  FontSize="15" Foreground="Black"></TextBox>
+                            <TextBox  FontFamily="Microsoft YaHei" Name="ContentText" ClipToBounds="True" BorderBrush="Gray" BorderThickness="0" Padding="6" TextWrapping="Wrap"  FontSize="15" Foreground="Black"></TextBox>
                         <!-- Text="{Binding Path=Content}"-->
                             <!--/Grid>
                         </Border-->

@@ -19,12 +19,12 @@
         </Grid.RowDefinitions>
         <Border Margin="10" Grid.Row="0" CornerRadius="5,5,5,5" BorderBrush="{StaticResource lightestBrush}">
             <Grid>
-                <Label HorizontalAlignment="Left">登 陆：</Label>
+                <Label  FontFamily="Microsoft YaHei" HorizontalAlignment="Left">登 陆：</Label>
             </Grid>
         </Border>
         <Border Margin="10" Grid.Row="1" CornerRadius="5,5,5,5" BorderBrush="{StaticResource lightestBrush}">
             <Grid>
-                <TextBox Name="Input" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
+                <TextBox  FontFamily="Microsoft YaHei" Name="Input" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
                 <Canvas ClipToBounds="True">
                     <Path Stroke="Gray" StrokeThickness="0.5">
                         <Path.Data>
@@ -41,10 +41,10 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Border Grid.Column="0" CornerRadius="5" BorderBrush="{StaticResource lightestBrush}">
-                <Button Click="login" Grid.Column="0" Padding="10" Template="{StaticResource NormalButton}">确 定</Button>
+                <Button  FontFamily="Microsoft YaHei" Click="login" Grid.Column="0" Padding="10" Template="{StaticResource NormalButton}">确 定</Button>
             </Border>
             <Border Grid.Column="2" CornerRadius="5" BorderBrush="{StaticResource lightestBrush}">
-                <Button Click="closeWindow" Grid.Column="2" Padding="10" Template="{StaticResource NormalButton}">取 消</Button>
+                <Button  FontFamily="Microsoft YaHei" Click="closeWindow" Grid.Column="2" Padding="10" Template="{StaticResource NormalButton}">取 消</Button>
             </Border>
         </Grid>
     </Grid>
