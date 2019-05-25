@@ -166,20 +166,11 @@
     <Resource Include="Images\defaultHeader.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\add.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\update.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\clean.png" />
     <Resource Include="Images\send.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\header.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\email.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\attention.png" />
@@ -189,6 +180,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\defaultPage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,6 +15,13 @@ using System.Windows.Shapes;
 using EmailClient.Entity;
 using EmailClient.windows;
 
+/* Email one = new Email();
+          one.Sender = "一个新的";
+          one.Topic = "一个新的";
+          List<Email> email1 = new List<Email>();
+          email1.Add(one);
+          receiveBox.ItemsSource = email1;*/
+
 namespace EmailClient
 {
     /// <summary>
@@ -203,6 +210,7 @@ namespace EmailClient
             this.SendButton.IsEnabled = false;
             this.CleanButton.Visibility = Visibility.Hidden;
             this.CleanButton.IsEnabled = false;
+       
         }
         public MainWindow()
         {
