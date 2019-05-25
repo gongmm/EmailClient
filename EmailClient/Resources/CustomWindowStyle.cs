@@ -17,5 +17,12 @@ namespace EmailClient.Resources
                 ((FrameworkElement)sender).TemplatedParent;
             win.Close();
         }
+        private void titleBar_MouseLeftButtonDown(object sender, RoutedEventArgs e)
+        {
+            Window win = (Window)
+                ((FrameworkElement)sender).TemplatedParent;
+            win.DragMove();
+        }
+        
     }
 }

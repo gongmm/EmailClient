@@ -144,21 +144,20 @@
                         <Grid Grid.Row="0" Background="{StaticResource deepestBrush}">
                         <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        <ColumnDefinition Width="Auto"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                     <!--标题图片-->
                         <Image Grid.Column="0" Source="{TemplateBinding Icon}"/>
                     <!--标题-->
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="15" Foreground="White"  Padding="5" Text="{TemplateBinding Title}"></TextBlock>
-                    <Button Grid.Column="3" Style="{StaticResource MinimumButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                    <TextBlock MouseLeftButtonDown="titleBar_MouseLeftButtonDown" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Foreground="White"  Padding="5" Text="{TemplateBinding Title}"></TextBlock>
+                    <Button Grid.Column="2" Style="{StaticResource MinimumButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
                       ></Button>
-                        <Button Grid.Column="4" Style="{StaticResource MaximumButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        <Button Grid.Column="3" Style="{StaticResource MaximumButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
                       ></Button>
-                    <Button  Click="cmdClose_Click" Grid.Column="5" Style="{StaticResource CloseButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                    <Button  Click="cmdClose_Click" Grid.Column="4" Style="{StaticResource CloseButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
                       ></Button>
                     </Grid>
                     <!--收发邮件详细内容-->
