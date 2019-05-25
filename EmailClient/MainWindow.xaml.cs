@@ -167,8 +167,6 @@ namespace EmailClient
         }
         private void cleanEmail(object sender, RoutedEventArgs e)
         {
-
-            this.SenderText.Text = "";
             this.ReceiveText.Text = "";
             this.TopicText.Text = "";
             this.ContentText.Text = "";
