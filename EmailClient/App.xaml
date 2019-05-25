@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="Resources/CustomDataTemplate.xaml"/>
                 <ResourceDictionary Source="Resources/CustomBrushes.xaml"/>
                 <ResourceDictionary Source="Resources/CustomWindowStyle.xaml"/>
+                <ResourceDictionary Source="Resources/CustomScrollViewer.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

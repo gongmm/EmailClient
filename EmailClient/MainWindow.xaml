@@ -10,8 +10,7 @@
         Background="Transparent"
         Template="{StaticResource WindowTemplate}"
          Title="EmailClient" Height="450" Width="800"
-      WindowStartupLocation="CenterScreen"
-        ResizeMode="CanMinimize">
+      WindowStartupLocation="CenterScreen" >
     <!-- AllowsTransparency="True"
         WindowStyle="None"
         Background="Transparent"-->
@@ -125,7 +124,7 @@
             </Grid>
             <!--/ListBoxItem-->
             <Grid Name="emails" Height="330">
-                <ScrollViewer Name="scrollviewer" PreviewMouseWheel ="previewMouseWheel"  VerticalScrollBarVisibility="Hidden">
+                <ScrollViewer Style="{StaticResource scrollStyle}" Name="scrollviewer" PreviewMouseWheel ="previewMouseWheel" >
                     <ListBox SelectionChanged="changeSelection" BorderThickness="0" Name="receiveBox" Background="{StaticResource deepestBrush}"
                          HorizontalContentAlignment="Stretch">
                         <!-- ItemTemplate="{StaticResource ReceiveItemData}"-->

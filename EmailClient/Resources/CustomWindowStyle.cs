@@ -47,7 +47,7 @@ namespace EmailClient.Resources
                     main.Width = SystemParameters.WorkArea.Width;
                     main.Height = SystemParameters.WorkArea.Height;
                     main.WindowState = WindowState.Maximized;
-                    main.setScroller(main.Height-150);
+                    main.setScroller(main.Height-130);
                 }
                 else
                 {
@@ -63,8 +63,8 @@ namespace EmailClient.Resources
                     main.Left = main.normalleft;
                     main.Width = main.normalwidth;
                     main.Height = main.normalheight;
-
-                   // gd_main.Margin = new Thickness(0);
+                    main.setScroller(330);
+                    // gd_main.Margin = new Thickness(0);
                 }
 
             }
