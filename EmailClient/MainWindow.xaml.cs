@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EmailClient.Entity;
 using EmailClient.windows;
+
 namespace EmailClient
 {
     /// <summary>
@@ -58,24 +59,37 @@ namespace EmailClient
             String receiveAddr = this.ReceiveText.Text;
             String topic = this.TopicText.Text;
             String content = this.ContentText.Text;
-
-            // 初始化
+         
+            
+                SmtpClient smtpClient = new SmtpClient(server, port, true);
+            Attention error = null;
             try
             {
-                SmtpClient smtpClient = new SmtpClient(server, port, true);
-                //smtpClient.AuthType = AuthType.AuthPlain;
                 smtpClient.Authorize("gnaizgnaw@163.com", "610319MM");
-                MailAddress address = new MailAddress(receiveAddr);
-                MailMessage message = new MailMessage(address, topic, content);
-                smtpClient.Send(message);
-                smtpClient.Dispose();
             }
-            catch (Exception ex) {
-                Attention error = new Attention("发 送 失 败！");
+            catch (SmtpException.ConnectionFaildException ex) {
+                error = new Attention("连 接 失 败！");
+                error.ShowDialog();
+                return;
+            }
+            catch (SmtpException.AuthFaildException ex) {
+                error = new Attention("验 证 失 败！");
                 error.ShowDialog();
                 return;
             }
 
+                MailAddress address = new MailAddress(receiveAddr);
+                MailMessage message = new MailMessage(address, topic, content);
+            try
+            {
+                smtpClient.Send(message);
+            }
+            catch (Exception ex) {
+                error = new Attention("发 送 失 败！");
+                error.ShowDialog();
+                return;
+            }
+                smtpClient.Dispose(); 
             Attention success = new Attention("发 送 成 功！");
             success.ShowDialog();
         }
