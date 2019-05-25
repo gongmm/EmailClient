@@ -155,7 +155,7 @@
                     <TextBlock MouseLeftButtonDown="titleBar_MouseLeftButtonDown" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Foreground="White"  Padding="5" Text="{TemplateBinding Title}"></TextBlock>
                     <Button Grid.Column="2" Style="{StaticResource MinimumButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
                       ></Button>
-                        <Button Grid.Column="3" Style="{StaticResource MaximumButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                        <Button Click="maximumWindow" Grid.Column="3" Style="{StaticResource MaximumButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
                       ></Button>
                     <Button  Click="cmdClose_Click" Grid.Column="4" Style="{StaticResource CloseButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
                       ></Button>

@@ -10,7 +10,8 @@
         Background="Transparent"
         Template="{StaticResource WindowTemplate}"
          Title="EmailClient" Height="450" Width="800"
-      WindowStartupLocation="CenterScreen" >
+      WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
     <!-- AllowsTransparency="True"
         WindowStyle="None"
         Background="Transparent"-->

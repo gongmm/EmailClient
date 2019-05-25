@@ -22,6 +22,10 @@ namespace EmailClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        public double normaltop;
+        public double normalleft;
+        public double normalwidth;
+        public double normalheight;
         private String server="smtp.163.com";
         private int port = 25;
         private List<Email> emailList=null;
@@ -30,6 +34,9 @@ namespace EmailClient
             this.user = user;
             if(user!=null)
             this.UserLogin.Text = user;
+        }
+        public void setScroller(double height) {
+            this.emails.Height = height;
         }
         private void previewMouseWheel(object sender, MouseWheelEventArgs e)
         {
