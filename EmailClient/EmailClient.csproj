@@ -56,8 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Entity\Email.cs" />
     <Compile Include="Model\MailAddress.cs" />
     <Compile Include="Model\MailMessage.cs" />
+    <Compile Include="Resources\CustomWindowStyle.cs" />
     <Compile Include="SmtpUtil\SmtpBaseClient.cs" />
     <Compile Include="SmtpUtil\SmtpCode.cs" />
     <Compile Include="SmtpUtil\SmtpException.cs" />
@@ -65,6 +67,12 @@
     <Compile Include="SmtpUtil\SmtpSslClient.cs" />
     <Compile Include="SmtpUtil\SmtpClient.cs" />
     <Compile Include="StmpTest.cs" />
+    <Compile Include="windows\Attention.xaml.cs">
+      <DependentUpon>Attention.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="windows\InputWindow.xaml.cs">
+      <DependentUpon>InputWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,6 +85,34 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\CustomBrushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CustomButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CustomButtonTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CustomDataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CustomWindowStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\Attention.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\InputWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -104,6 +140,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\default.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\defaultHeader.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clean.png" />
+    <Resource Include="Images\send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\header.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
