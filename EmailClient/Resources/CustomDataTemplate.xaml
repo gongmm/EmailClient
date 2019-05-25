@@ -27,9 +27,9 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Padding="5" FontSize="15" Name="sender" Foreground="{StaticResource lightestBrush}" Text="{Binding Path=Sender}"></TextBlock>
-                        <TextBlock Padding="5" Name="topic" Grid.Row="1"  FontWeight="Bold" Foreground="{StaticResource lightestBrush}" Text="{Binding Path=Topic}"></TextBlock>
-                        <TextBlock Padding="5" FontSize="13" Name="content" Grid.Row="2" Foreground="{StaticResource lightestBrush}" Text="{Binding Path=ContentBrief}"></TextBlock>
+                        <TextBlock Padding="5" FontSize="15" Name="sender" Foreground="White" Text="{Binding Path=Sender}"></TextBlock>
+                        <TextBlock Padding="5" Name="topic" Grid.Row="1"  FontWeight="Bold" Foreground="White" Text="{Binding Path=Topic}"></TextBlock>
+                        <TextBlock Padding="5" FontSize="13" Name="content" Grid.Row="2" Foreground="White" Text="{Binding Path=ContentBrief}"></TextBlock>
                     </Grid>
                 </Grid>
                 <!--ContentPresenter Margin="{TemplateBinding ListBoxItem.Padding}" ContentTemplate="{StaticResource ReceiveItemData}" Content="{TemplateBinding ListBoxItem.Content}"></ContentPresenter-->
@@ -37,24 +37,16 @@
         </Border>
         <ControlTemplate.Triggers>
             <Trigger Property="Button.IsMouseOver" Value="True">
-                <!--Setter TargetName="Content" Property="Background"
-         Value="{StaticResource lightestBrush}"/-->
-                <!--Setter TargetName="sender" Property="Foreground"
-         Value="{StaticResource deeperBrush}"/>
-                <Setter TargetName="content" Property="Foreground"
-         Value="{StaticResource deeperBrush}"/-->
-                <Setter TargetName="selected" Property="BorderBrush"
-         Value="White"/>
+                <Setter TargetName="Content" Property="Background"
+         Value="{StaticResource lightestBrush}"/>
+                <Setter TargetName="Content" Property="Opacity"
+         Value="0.5"/>
             </Trigger>
             <Trigger Property="Button.IsPressed" Value="True">
-                <!--Setter TargetName="Content" Property="Background"
+                <Setter TargetName="Content" Property="Background"
          Value="{StaticResource lightestBrush}"/>
-                <Setter TargetName="sender" Property="Foreground"
-         Value="{StaticResource deeperBrush}"/>
-                <Setter TargetName="content" Property="Foreground"
-         Value="{StaticResource deeperBrush}"/-->
-                <Setter TargetName="selected" Property="BorderBrush"
-         Value="White"/>
+                <Setter TargetName="Content" Property="Opacity"
+         Value="0.5"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

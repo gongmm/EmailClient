@@ -167,23 +167,23 @@
                                     <DoubleAnimation
                                         Storyboard.TargetName="PART_VerticalScrollBar"
                                         Storyboard.TargetProperty="Opacity"
-                                        To="0.8"
+                                        To="1"
                                         Duration="0:0:1"/>
                                     <DoubleAnimation
                                         Storyboard.TargetName="PART_VerticalScrollBar"
                                         Storyboard.TargetProperty="Opacity"
-                                        To="0.2"
+                                        To="0.5"
                                         Duration="0:0:1"
                                         BeginTime="0:0:1"/>
                                     <DoubleAnimation
                                         Storyboard.TargetName="PART_HorizontalScrollBar"
                                         Storyboard.TargetProperty="Opacity"
-                                        To="0.8"
+                                        To="1"
                                         Duration="0:0:1"/>
                                     <DoubleAnimation
                                         Storyboard.TargetName="PART_HorizontalScrollBar"
                                         Storyboard.TargetProperty="Opacity"
-                                        To="0.2"
+                                        To="0.5"
                                         Duration="0:0:1"
                                         BeginTime="0:0:1"/>
                                 </Storyboard>
@@ -196,7 +196,7 @@
                                     <DoubleAnimation
                                         Storyboard.TargetName="PART_VerticalScrollBar"
                                         Storyboard.TargetProperty="Opacity"
-                                        To="0.8"
+                                        To="1"
                                         Duration="0:0:0.7"/>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -208,7 +208,7 @@
                                     <DoubleAnimation
                                         Storyboard.TargetName="PART_VerticalScrollBar"
                                         Storyboard.TargetProperty="Opacity"
-                                        To="0.2"
+                                        To="0.5"
                                         Duration="0:0:0.7"/>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -220,7 +220,7 @@
                                     <DoubleAnimation
                                         Storyboard.TargetName="PART_HorizontalScrollBar"
                                         Storyboard.TargetProperty="Opacity"
-                                        To="0.8"
+                                        To="1"
                                         Duration="0:0:0.7"/>
                                 </Storyboard>
                             </BeginStoryboard>
@@ -232,7 +232,7 @@
                                     <DoubleAnimation
                                         Storyboard.TargetName="PART_HorizontalScrollBar"
                                         Storyboard.TargetProperty="Opacity"
-                                        To="0.2"
+                                        To="0.5"
                                         Duration="0:0:0.7"/>
                                 </Storyboard>
                             </BeginStoryboard>

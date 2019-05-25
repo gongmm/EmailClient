@@ -50,7 +50,7 @@
                             </Border>
                           </Grid>
                     </Button.ToolTip>
-                    <Image Source="Images/header.png" Margin="5"  Width="30"></Image>
+                    <Image RenderOptions.BitmapScalingMode="HighQuality" Source="Images/header.png" Margin="5"  Width="30"></Image>
                 </Button >
                 <StackPanel Width="100" Height="50" Grid.Column="1"></StackPanel>
                 <Button Click="createNewEmail" Grid.Column="2" Template="{StaticResource NormalButton}">
@@ -74,12 +74,12 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Button Margin="0,0,0,0" Template="{StaticResource NormalButton}" FontFamily="Microsoft YaHei" Padding="10" FontSize="15" FontWeight="Light" Foreground="White">
+                </Grid.ColumnDefinitions> 
+                <Button Margin="0,0,0,0" Template="{StaticResource NormalButton}" FontFamily="Microsoft YaHei" Padding="10"  FontSize="17" FontWeight="Bold" Foreground="White">
                     收 件 箱
                 </Button>
                 <Button Grid.Column="2" Template="{StaticResource NormalButton}">
-                    <Image Source="Images/update.png" Margin="10"  Width="20"></Image>
+                    <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="Images/update.png" Margin="10"  Width="20"></Image>
                     <!--Canvas Width="50" Height="40">
                         <Path Name="refresh1" Stroke="White" StrokeThickness="1">
                             <Path.Data>
@@ -124,7 +124,7 @@
             </Grid>
             <!--/ListBoxItem-->
             <Grid Name="emails" Height="330">
-                <ScrollViewer Style="{StaticResource scrollStyle}" Name="scrollviewer" PreviewMouseWheel ="previewMouseWheel" >
+                <ScrollViewer Style="{StaticResource scrollStyle}" Name="scrollviewer" PreviewMouseWheel ="previewMouseWheel">
                     <ListBox SelectionChanged="changeSelection" BorderThickness="0" Name="receiveBox" Background="{StaticResource deepestBrush}"
                          HorizontalContentAlignment="Stretch">
                         <!-- ItemTemplate="{StaticResource ReceiveItemData}"-->
@@ -183,7 +183,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Margin="5" Foreground="Gray"  FontFamily="Microsoft YaHei" FontSize="15">发件人 :</Label>
                         <!--发件人输入框-->
-                        <Grid Grid.Column="1"  Margin="10,0,50,0" >
+                        <Grid Grid.Column="1"  Margin="10,0,75,0" >
                             <TextBox  FontFamily="Microsoft YaHei" Name="SenderText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
                             <!--Text="{Binding Path=Sender}"-->
                                 <Canvas ClipToBounds="True">
@@ -202,7 +202,7 @@
                         </Grid.ColumnDefinitions>
                         <Label Margin="5" Foreground="Gray"  FontFamily="Microsoft YaHei" FontSize="15">收件人 :</Label>
                         <!--收件人输入框-->
-                        <Grid Grid.Column="1"  Margin="10,0,50,0" >
+                        <Grid Grid.Column="1"  Margin="10,0,75,0" >
                             <TextBox  FontFamily="Microsoft YaHei" Name="ReceiveText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black"  ></TextBox>
                             <!---->
                                 <Canvas ClipToBounds="True">
@@ -221,10 +221,10 @@
                         </Grid.ColumnDefinitions>
                         <Label Margin="5"  FontFamily="Microsoft YaHei" Foreground="Gray" FontSize="15">主题 : </Label>
                         <!--主题输入框-->
-                        <Grid Grid.Column="1"  Margin="30,0,50,0" >
+                        <Grid Grid.Column="1"  Margin="24,0,75,0" >
                                 <TextBox  FontFamily="Microsoft YaHei" Name="TopicText" BorderBrush="White" BorderThickness="0" Padding="6" TextWrapping="NoWrap" FontSize="15" Foreground="Black" ></TextBox>
                             <!-- Text="{Binding Path=Content}"-->
-                                <Canvas ClipToBounds="True">
+                                <Canvas  ClipToBounds="True">
                                 <Path Stroke="Gray" StrokeThickness="0.5">
                                     <Path.Data>
                                         <LineGeometry StartPoint="0,30" EndPoint="500,30"></LineGeometry>
