@@ -10,7 +10,7 @@
         Background="Transparent"
          WindowStartupLocation="CenterScreen" 
         Template="{StaticResource WindowTemplate}"
-        Title="登 陆"  Height="200" Width="300">
+        Title="登 陆"  Height="200" Width="300" Icon="pack://application:,,,/Images/input.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>

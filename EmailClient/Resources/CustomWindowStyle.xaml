@@ -150,7 +150,7 @@
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                     <!--标题图片-->
-                        <Image Grid.Column="0" Source="{TemplateBinding Icon}"/>
+                        <Image Width="25" Grid.Column="0" Source="{TemplateBinding Icon}"/>
                     <!--标题-->
                     <TextBlock MouseLeftButtonDown="titleBar_MouseLeftButtonDown" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Foreground="White"  Padding="5" Text="{TemplateBinding Title}"></TextBlock>
                     <Button Grid.Column="2" Style="{StaticResource MinimumButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 

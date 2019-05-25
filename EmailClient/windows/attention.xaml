@@ -10,7 +10,7 @@
         Background="Transparent"
          WindowStartupLocation="CenterScreen" 
         Template="{StaticResource WindowTemplate}"
-        Title="提 醒"  FontFamily="Microsoft YaHei"  Height="200" Width="300">
+        Title="提 醒"  FontFamily="Microsoft YaHei"  Height="200" Width="300" Icon="pack://application:,,,/Images/attention.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
