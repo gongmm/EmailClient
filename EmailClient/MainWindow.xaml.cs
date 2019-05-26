@@ -345,5 +345,5 @@ namespace EmailClient
             this.receiveBox.ItemsSource = emails;
         }
 
-    }
+ }
 }
