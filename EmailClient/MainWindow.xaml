@@ -29,7 +29,7 @@
         <!--ListBox Margin="0,0,0,0"  Grid.Column="0" Background="{StaticResource deepestBrush}"  -->
         <StackPanel Background="{StaticResource deepestBrush}" Name="guide">
             <!--头像和新邮件-->
-                <!--ListBoxItem Template="{StaticResource NormalItemButton}"-->
+            <!--ListBoxItem Template="{StaticResource NormalItemButton}"-->
             <Grid Name="add">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -46,11 +46,11 @@
                                          VerticalContentAlignment="Center" BorderThickness="0"
                                          TextWrapping="Wrap" IsReadOnly="True"
                                          Padding="10" Name="UserLogin"></TextBox>
-                                
+
                             </Border>
-                          </Grid>
+                        </Grid>
                     </Button.ToolTip>
-                    
+
                     <!--Image Name="headerPic" RenderOptions.BitmapScalingMode="HighQuality" Source="Images/header.png"  Width="30"></Image-->
                 </Button >
                 <StackPanel Width="100" Height="50" Grid.Column="1"></StackPanel>
@@ -75,13 +75,13 @@
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
-                </Grid.ColumnDefinitions> 
+                </Grid.ColumnDefinitions>
                 <Button Margin="0,0,0,0" Template="{StaticResource NormalButton}" FontFamily="Microsoft YaHei" Padding="10"  FontSize="17" FontWeight="Bold" Foreground="White">
                     收 件 箱
                 </Button>
 
-                <Button Grid.Column="2" Style="{StaticResource updateStyle}">
-                    
+                <Button Grid.Column="2" Style="{StaticResource updateStyle}" Click="refreshMailIntros">
+
 
                 </Button>
             </Grid>
@@ -91,7 +91,7 @@
                     <ListBox SelectionChanged="changeSelection" BorderThickness="0" Name="receiveBox" Background="{StaticResource deepestBrush}"
                          HorizontalContentAlignment="Stretch">
                         <!-- ItemTemplate="{StaticResource ReceiveItemData}"-->
-                            <ListBox.ItemContainerStyle>
+                        <ListBox.ItemContainerStyle>
                             <Style>
                                 <Setter Property="ListBoxItem.Template" Value="{StaticResource listItem}"/>
                                 <Setter Property="Control.Padding" Value="0"></Setter>
@@ -109,12 +109,16 @@
                 </ScrollViewer>
             </Grid>
         </StackPanel>
-     
+
         <!--右部详细信息-->
         <Grid  Name="display" Background="White" Grid.Column="1" Margin="0,0,0,0" >
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="43*"/>
+            </Grid.RowDefinitions>
+
             <!--DataContext="{Binding ElementName=receiveBox, Path=SelectedItem}"-->
-            <Grid>
+            <Grid Grid.RowSpan="2">
                 <Border Margin="20,20,20,20" Name="noUser" Visibility="Visible">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -124,7 +128,7 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
                                 <RowDefinition Height="Auto"></RowDefinition>
                             </Grid.RowDefinitions>
                             <Image Width="130"  Source="Images/defaultPage.png"/>
