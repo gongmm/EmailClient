@@ -36,7 +36,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Click="Login" Template="{StaticResource NormalButton}">
+                <Button Click="Login" Style="{StaticResource headerStyle}">
                     <Button.ToolTip>
                         <Grid Margin="0">
                             <Border CornerRadius="10,10,10,10" 
@@ -50,10 +50,11 @@
                             </Border>
                           </Grid>
                     </Button.ToolTip>
-                    <Image RenderOptions.BitmapScalingMode="HighQuality" Source="Images/header.png" Margin="5"  Width="30"></Image>
+                    
+                    <!--Image Name="headerPic" RenderOptions.BitmapScalingMode="HighQuality" Source="Images/header.png"  Width="30"></Image-->
                 </Button >
                 <StackPanel Width="100" Height="50" Grid.Column="1"></StackPanel>
-                <Button Click="createNewEmail" Grid.Column="2" Template="{StaticResource NormalButton}">
+                <Button Click="createNewEmail" Grid.Column="2" Style="{StaticResource addButtonStyle}">
                     <!--Canvas  Width="50" Height="50">
                         <Path Name="line1" Stroke="White" StrokeThickness="1">
                             <Path.Data>
@@ -66,7 +67,7 @@
                             </Path.Data>
                         </Path>
                     </Canvas-->
-                    <Image Source="Images/add.png"   Width="35"></Image>
+                    <!--Image Source="Images/add.png"   Width="35"></Image-->
                 </Button>
             </Grid>
             <Grid Name="boxTitle">
@@ -78,9 +79,10 @@
                 <Button Margin="0,0,0,0" Template="{StaticResource NormalButton}" FontFamily="Microsoft YaHei" Padding="10"  FontSize="17" FontWeight="Bold" Foreground="White">
                     收 件 箱
                 </Button>
-                <Button Grid.Column="2" Template="{StaticResource NormalButton}" Click="refreshMailIntros">
-                    <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="Images/update.png" Margin="10"  Width="20"></Image>
-                   
+
+                <Button Grid.Column="2" Style="{StaticResource updateStyle}">
+                    
+
                 </Button>
             </Grid>
             <!--/ListBoxItem-->

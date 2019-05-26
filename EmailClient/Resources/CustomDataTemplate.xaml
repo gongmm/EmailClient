@@ -5,19 +5,20 @@
     <Color x:Key="lightest">#6A94D4</Color>
     <Color x:Key="lighter">#437DD4</Color>
     <Color x:Key="deeper">#0F4DA8</Color>
-    <Color x:Key="deepest">#052F6D</Color>
+    <!--Color x:Key="deepest">#052F6D</Color-->
+    <Color x:Key="deepest">#0C5AA6</Color>
     <SolidColorBrush x:Key="lightestBrush" >#6A94D4</SolidColorBrush>
     <SolidColorBrush x:Key="lighterBrush" >#437DD4</SolidColorBrush>
     <SolidColorBrush x:Key="deeperBrush" >#0F4DA8</SolidColorBrush>
-    <SolidColorBrush x:Key="deepestBrush" >#052F6D</SolidColorBrush>
-  
+    <!--SolidColorBrush x:Key="deepestBrush" >#052F6D</SolidColorBrush-->
+    <SolidColorBrush x:Key="deepestBrush" >#0C5AA6</SolidColorBrush>
     <DataTemplate x:Key="ReceiveItemData">
        
         
     </DataTemplate>
     
     <ControlTemplate x:Key="listItem">
-        <Border Name="selected" Margin="10" BorderThickness="1" BorderBrush="Transparent"
+        <Border Name="selected" BorderThickness="0"
                     >
             <Grid Name="Content">
                 <Grid>
@@ -26,10 +27,18 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
                         <TextBlock Padding="5" FontSize="15" Name="sender" Foreground="White" Text="{Binding Path=Sender}"></TextBlock>
                         <TextBlock Padding="5" Name="topic" Grid.Row="1"  FontWeight="Bold" Foreground="White" Text="{Binding Path=Topic}"></TextBlock>
                         <TextBlock Padding="5" FontSize="13" Name="content" Grid.Row="2" Foreground="White" Text="{Binding Path=ContentBrief}"></TextBlock>
+                        <Canvas ClipToBounds="True" Grid.Row="3" Height="0.7">
+                            <Path Stroke="White" StrokeThickness="0.5">
+                                <Path.Data>
+                                    <LineGeometry StartPoint="0,0.5" EndPoint="500,0.5"></LineGeometry>
+                                </Path.Data>
+                            </Path>
+                        </Canvas>
                     </Grid>
                 </Grid>
                 <!--ContentPresenter Margin="{TemplateBinding ListBoxItem.Padding}" ContentTemplate="{StaticResource ReceiveItemData}" Content="{TemplateBinding ListBoxItem.Content}"></ContentPresenter-->
@@ -38,15 +47,15 @@
         <ControlTemplate.Triggers>
             <Trigger Property="Button.IsMouseOver" Value="True">
                 <Setter TargetName="Content" Property="Background"
-         Value="{StaticResource lightestBrush}"/>
-                <Setter TargetName="Content" Property="Opacity"
-         Value="0.5"/>
+         Value="{StaticResource lighterBrush}"/>
+                <!--Setter TargetName="Content" Property="Opacity"
+         Value="0.5"/-->
             </Trigger>
             <Trigger Property="Button.IsPressed" Value="True">
                 <Setter TargetName="Content" Property="Background"
-         Value="{StaticResource lightestBrush}"/>
-                <Setter TargetName="Content" Property="Opacity"
-         Value="0.5"/>
+         Value="{StaticResource lighterBrush}"/>
+                <!--Setter TargetName="Content" Property="Opacity"
+         Value="0.5"/-->
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
