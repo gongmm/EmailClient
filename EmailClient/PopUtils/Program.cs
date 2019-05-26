@@ -73,9 +73,12 @@ namespace EmailClient
             return emailDetail;
         }
 
-        public static bool deleteOne(long pos)
+        public static bool deleteOne(long pos,String user,String keyWord)
         {
-            return pop3Client.DeleteEmail(pos);
+            bool returned = pop3Client.DeleteEmail(pos);
+            pop3Client.CloseConnection();
+            connectPop(user, keyWord);
+            return returned;
         }
         
         

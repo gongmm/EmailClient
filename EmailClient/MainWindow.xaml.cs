@@ -57,6 +57,12 @@ namespace EmailClient
                 this.SendButton.IsEnabled = true;
                 this.CleanButton.Visibility = Visibility.Hidden;
                 this.CleanButton.IsEnabled = true;
+
+                
+                this.ContentText.IsReadOnly = false;
+                this.TopicText.IsReadOnly = false;
+                this.ReceiveText.IsReadOnly = false;
+                refresh();
             }
             else {
                 this.UserLogin.Content = "未登录";
@@ -198,7 +204,7 @@ namespace EmailClient
         private void cleanEmail(object sender, RoutedEventArgs e)
         {
 
-            bool isDeleted = EmailClient.Program.deleteOne(thispos + 1);
+            bool isDeleted = EmailClient.Program.deleteOne(thispos + 1,this.user,this.keyword);
             if (isDeleted == true)
             {
                 this.SenderText.Text = "";
@@ -230,6 +236,9 @@ namespace EmailClient
             this.CleanButton.IsEnabled = true;
             this.noUser.Visibility = Visibility.Hidden;
             this.hasUser.Visibility = Visibility.Visible;
+            this.ContentText.IsReadOnly = false;
+            this.TopicText.IsReadOnly = false;
+            this.ReceiveText.IsReadOnly = false;
         }
         private void closeWindow(object sender, RoutedEventArgs e)
         {
@@ -245,9 +254,13 @@ namespace EmailClient
             EmailClient.Program.connectPop(user, keyword);
             EmailClient.Program.EmailDetail detail = EmailClient.Program.GetDetail(pos);
             this.SenderText.Text = detail.From;
+            this.SenderText.IsReadOnly = true;
             this.ContentText.Text = detail.Body;
+            this.ContentText.IsReadOnly = true;
             this.TopicText.Text = detail.Subject;
+            this.TopicText.IsReadOnly = true;
             this.ReceiveText.Text = detail.To;
+            this.ReceiveText.IsReadOnly = true;
             this.SendButton.Visibility = Visibility.Hidden;
             this.SendButton.IsEnabled = false;
             this.CleanButton.Visibility = Visibility.Visible;
