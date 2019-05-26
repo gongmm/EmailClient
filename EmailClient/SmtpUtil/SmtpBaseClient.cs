@@ -207,7 +207,6 @@ namespace EmailClient
 To: {targetName} {targetMail}
 Subject: {subject}
 
-                        
 {body}
 .");
             if (!CheckResponse(250).Res)
