@@ -12,7 +12,8 @@ namespace EmailClient
             public string title;
             public string subject;
             public long pos;
-            public string sender;
+            public string brief;
+            
 
         };
 
@@ -30,7 +31,7 @@ namespace EmailClient
             long count = pop3Client.MessageCount;
            // Console.WriteLine(count);
 
-            for (long i = 0; i <count-4; i++)
+            for (long i = 0; i <count; i++)
             {
                 pop3Client.NextEmail();
                 Console.WriteLine(pop3Client.From);
@@ -39,7 +40,12 @@ namespace EmailClient
                 s.title = pop3Client.From;
                 s.subject = pop3Client.Subject;
                 s.pos = i;
-                s.sender = pop3Client.From;
+
+             /*   if (pop3Client.Body.Length >= 30)
+                {
+                    s.brief = pop3Client.Body.Substring(0, 30);
+                }
+                else s.brief = pop3Client.Body;*/
                 list.Add(s);
             }
             return list;
@@ -47,7 +53,7 @@ namespace EmailClient
 
         public static Pop3Client login(string user, string pass)
         {
-            return new Pop3Client(user,pass,"pop.whu.edu.cn");
+            return new Pop3Client(user,pass,"pop.sina.com");
         }
 
         public static void connectPop(string user, string pass)
