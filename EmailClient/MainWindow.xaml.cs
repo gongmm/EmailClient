@@ -42,9 +42,9 @@ namespace EmailClient
         private bool hasLogin = false;
         private SmtpClient client = null;
         private String smtpServerName = null;
-        private String pop3ServerName = null;
+        private String popServerName = null;
         private int smtpPort = 25;
-        private int pop3Port = 110;
+        private int popPort = 110;
         public void setLoginStatus(bool status)
         {
             this.hasLogin = status;
@@ -67,9 +67,9 @@ namespace EmailClient
         public void setUser(String user) {
             this.user = user;
             String smtpServerName = "smtp." + user.Substring(user.IndexOf("@") + 1);
-            String pop3ServerName = "pop3." + user.Substring(user.IndexOf("@") + 1);
+            String popServerName = "pop." + user.Substring(user.IndexOf("@") + 1);
             this.smtpServerName = smtpServerName;
-            this.pop3ServerName = pop3ServerName;
+            this.popServerName = popServerName;
         }
         public void setKeyword(String keyword)
         {
