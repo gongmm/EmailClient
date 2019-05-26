@@ -197,13 +197,15 @@ namespace EmailClient
         private void cleanEmail(object sender, RoutedEventArgs e)
         {
 
-            bool isDeleted = EmailClient.Program.deleteOne(thispos);
-            
-            this.SenderText.Text = "";
-            this.ReceiveText.Text = "";
-            this.TopicText.Text = "";
-            this.ContentText.Text = "";
-            refresh();
+            bool isDeleted = EmailClient.Program.deleteOne(thispos + 1);
+            if (isDeleted == true)
+            {
+                this.SenderText.Text = "";
+                this.ReceiveText.Text = "";
+                this.TopicText.Text = "";
+                this.ContentText.Text = "";
+                refresh();
+            }
 
         }
         private void createNewEmail(object sender, RoutedEventArgs e)
@@ -219,6 +221,9 @@ namespace EmailClient
             this.SendButton.IsEnabled = true;
             this.CleanButton.Visibility = Visibility.Visible;
             this.CleanButton.IsEnabled = true;
+            this.noUser.Visibility = Visibility.Hidden;
+            this.hasUser.Visibility = Visibility.Visible;
+
         }
         private void closeWindow(object sender, RoutedEventArgs e)
         {
