@@ -30,7 +30,7 @@
         <StackPanel Background="{StaticResource deepestBrush}" Name="guide">
             <!--头像和新邮件-->
             <!--ListBoxItem Template="{StaticResource NormalItemButton}"-->
-            <Grid Name="add">
+            <Grid Name="add" Margin="0,10,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -58,9 +58,9 @@
 
                     <!--Image Name="headerPic" RenderOptions.BitmapScalingMode="HighQuality" Source="Images/header.png"  Width="30"></Image-->
                 </Button >
-                <Label Name="UserLogin" Grid.Column="1" Foreground="White" FontFamily="Microsoft YaHei" FontSize="15" VerticalAlignment="Bottom">未登录</Label>
+                <Label  FontWeight="Bold" Name="UserLogin" Margin="5,0,0,0" Grid.Column="1" Foreground="White" FontFamily="Microsoft YaHei" FontSize="15" VerticalAlignment="Bottom">未登录</Label>
                 <!--StackPanel Width="100" Height="50" Grid.Column="2"></StackPanel-->
-                <Button Click="createNewEmail" Grid.Column="3" Style="{StaticResource addButtonStyle}">
+                <Button Margin="0,0,10,0" Click="createNewEmail" Grid.Column="3" Style="{StaticResource addButtonStyle}">
                     <!--Canvas  Width="50" Height="50">
                         <Path Name="line1" Stroke="White" StrokeThickness="1">
                             <Path.Data>
@@ -76,17 +76,17 @@
                     <!--Image Source="Images/add.png"   Width="35"></Image-->
                 </Button>
             </Grid>
-            <Grid Name="boxTitle">
+            <Grid Name="boxTitle" Margin="0,10,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Margin="0,0,0,0" Template="{StaticResource NormalButton}" FontFamily="Microsoft YaHei" Padding="10"  FontSize="17" FontWeight="Bold" Foreground="White">
+                <Button  Margin="5,0,0,0" Template="{StaticResource NormalButton}" FontFamily="Microsoft YaHei" Padding="10"  FontSize="17" FontWeight="Bold" Foreground="White">
                     收 件 箱
                 </Button>
 
-                <Button Grid.Column="2" Style="{StaticResource updateStyle}" Click="refreshMailIntros">
+                <Button Margin="0,0,10,0" Grid.Column="2" Style="{StaticResource updateStyle}" Click="refreshMailIntros">
 
 
                 </Button>

@@ -27,12 +27,12 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!--RowDefinition Height="Auto"></RowDefinition-->
                         </Grid.RowDefinitions>
-                        <TextBlock Padding="5" FontSize="15" Name="sender" Foreground="White" Text="{Binding Path=Sender}"></TextBlock>
-                        <TextBlock Padding="5" Name="topic" Grid.Row="1"  FontWeight="Bold" Foreground="White" Text="{Binding Path=Topic}"></TextBlock>
-                        <TextBlock Padding="5" FontSize="13" Name="content" Grid.Row="2" Foreground="White" Text="{Binding Path=ContentBrief}"></TextBlock>
-                        <Canvas ClipToBounds="True" Grid.Row="3" Height="0.7">
+                        <TextBlock Padding="5" FontSize="15" Margin="10,5,0,0" Name="sender" Foreground="White" Text="{Binding Path=Sender}"></TextBlock>
+                        <TextBlock Padding="5" Name="topic"  Margin="10,5,0,0" Grid.Row="1"  FontWeight="Bold" Foreground="White" Text="{Binding Path=Topic}"></TextBlock>
+                        <!--TextBlock Padding="5" FontSize="13" Name="content" Grid.Row="2" Foreground="White" Text="{Binding Path=ContentBrief}"></TextBlock-->
+                        <Canvas ClipToBounds="True" Margin="0,10,0,0" Grid.Row="2" Height="0.7">
                             <Path Stroke="White" StrokeThickness="0.5">
                                 <Path.Data>
                                     <LineGeometry StartPoint="0,0.5" EndPoint="500,0.5"></LineGeometry>
