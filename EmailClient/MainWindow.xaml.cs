@@ -34,6 +34,7 @@ namespace EmailClient
         public double normalleft;
         public double normalwidth;
         public double normalheight;
+        private long thispos;
         private int port = 25;
         private List<Email> emailList=null;
         private String user = null;
@@ -196,10 +197,17 @@ namespace EmailClient
         }
         private void cleanEmail(object sender, RoutedEventArgs e)
         {
-            this.ReceiveText.Text = "";
-            this.TopicText.Text = "";
-            this.ContentText.Text = "";
-           
+
+            bool isDeleted = EmailClient.Program.deleteOne(thispos + 1);
+            if (isDeleted == true)
+            {
+                this.SenderText.Text = "";
+                this.ReceiveText.Text = "";
+                this.TopicText.Text = "";
+                this.ContentText.Text = "";
+                refresh();
+            }
+
         }
         private void createNewEmail(object sender, RoutedEventArgs e)
         {
@@ -216,7 +224,12 @@ namespace EmailClient
             this.CleanButton.IsEnabled = false;
             /*
             this.CleanButton.Visibility = Visibility.Visible;
+
             this.CleanButton.IsEnabled = true;*/
+
+            this.CleanButton.IsEnabled = true;
+            this.noUser.Visibility = Visibility.Hidden;
+            this.hasUser.Visibility = Visibility.Visible;
         }
         private void closeWindow(object sender, RoutedEventArgs e)
         {
@@ -228,25 +241,29 @@ namespace EmailClient
             if (email == null)
                 return;
             long pos = email.pos;
+            thispos = pos;
             EmailClient.Program.connectPop(user, keyword);
             EmailClient.Program.EmailDetail detail = EmailClient.Program.GetDetail(pos);
             this.SenderText.Text = detail.From;
             this.ContentText.Text = detail.Body;
-            this.TopicText.Text = email.Topic;
-            this.ReceiveText.Text = email.Receiver;
+            this.TopicText.Text = detail.Subject;
+            this.ReceiveText.Text = detail.To;
             this.SendButton.Visibility = Visibility.Hidden;
             this.SendButton.IsEnabled = false;
-            this.CleanButton.Visibility = Visibility.Hidden;
-            this.CleanButton.IsEnabled = false;
-       
+            this.CleanButton.Visibility = Visibility.Visible;
+            this.CleanButton.IsEnabled = true;
+
+
         }
+
+
         public MainWindow()
         {
             InitializeComponent();
             if (user == null)
                 this.UserLogin.Content = "未登录";
                       this.emails.Height = this.Height - 50 - 50-30;
-                      List<Email> emails = new List<Email>();
+                 /*     List<Email> emails = new List<Email>();
                        Email email = new Email();
                        email.Sender = "<2016302580101@whu.edu.cn>";
                        email.Content = "This is a test!";
@@ -317,26 +334,33 @@ namespace EmailClient
                        if (email.Content.Length < 30)
                            length = email.Content.Length;
                        email.ContentBrief = email.Content.Substring(0, length);
-                       emails.Add(email);
-          emails = getMailIntros();
+                       emails.Add(email);*/
+          List<Email> emails = getMailIntros();
            this.emailList = emails;
             this.receiveBox.ItemsSource = emails;
         }
         private List<Email> getMailIntros() {
-            if (user != null && keyword != null)
+            if (hasLogin == true)
             {
-                EmailClient.Program.connectPop(user, keyword);
-                List<EmailClient.Program.SimpleIntro> list = new List<EmailClient.Program.SimpleIntro>();
-                list = EmailClient.Program.listIntros();
-                List<Email> emails = new List<Email>(list.Count);
-                for (int i = 0; i <= list.Count; i++)
-                {
-                    emails[i].pos = list[i].pos;
-                    emails[i].Sender = list[i].sender;
-                    emails[i].Topic = list[i].title;
-                    emails[i].ContentBrief = list[i].subject;
-                }
-                return emails;
+                
+                    EmailClient.Program.connectPop(user, keyword);
+                List<EmailClient.Program.SimpleIntro> list = EmailClient.Program.listIntros();
+                    List<Email> emails = new List<Email>();
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                    Email email = new Email();
+                        email.pos = list[i].pos;
+                    if (list[i].title.Length > 15)
+                    {
+                        email.Sender = list[i].title.Substring(0, 15);
+                    }
+                    else email.Sender = list[i].title;
+                   // email.ContentBrief = list[i].brief;
+                    email.Topic = list[i].subject;
+                    emails.Add(email);
+                    }
+                    return emails;
+              
             }
             else {
                 this.UserLogin.Content = "未登录";
@@ -344,10 +368,14 @@ namespace EmailClient
             }
         }
         private void refreshMailIntros(object sender, RoutedEventArgs e) {
+            refresh();
+        }
+
+
+        private void refresh() {
             List<Email> emails = getMailIntros();
             this.emailList = emails;
             this.receiveBox.ItemsSource = emails;
         }
-
  }
 }
