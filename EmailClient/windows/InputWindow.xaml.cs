@@ -34,10 +34,14 @@ namespace EmailClient.windows
         {
             user = this.userName.Text;
             String keyword = this.keyword.Password;
-            String serverName = this.serverName.Text;
+
+            // String serverName = this.serverName.Text;
+            String smtpServerName = "smtp."+user.Substring(this.user.IndexOf("@")+1);
+            String pop3ServerName = "pop3." + user.Substring(this.user.IndexOf("@") + 1);
             parent.setUser(user);
             parent.setKeyword(keyword);
-            parent.setServer(serverName);
+           // parent.setServer();
+           // parent.setPort(Convert.ToInt32(this.portName.Text));
             bool result=parent.Authorize();
             if (result == false) {
                 parent.setLoginStatus(false);

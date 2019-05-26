@@ -40,6 +40,10 @@ namespace EmailClient
         private String server = null;
         private bool hasLogin = false;
         private SmtpClient client = null;
+        private String smtpServerName = null;
+        private String pop3ServerName = null;
+        private int smtpPort = 25;
+        private int pop3Port = 110;
         public void setLoginStatus(bool status)
         {
             this.hasLogin = status;
@@ -55,8 +59,16 @@ namespace EmailClient
                 this.UserLogin.Text = "未登录";
             }
         }
+        public void setPort(int port)
+        {
+            this.port = port;
+        }
         public void setUser(String user) {
             this.user = user;
+            String smtpServerName = "smtp." + user.Substring(user.IndexOf("@") + 1);
+            String pop3ServerName = "pop3." + user.Substring(user.IndexOf("@") + 1);
+            this.smtpServerName = smtpServerName;
+            this.pop3ServerName = pop3ServerName;
         }
         public void setKeyword(String keyword)
         {
@@ -74,13 +86,15 @@ namespace EmailClient
             SmtpClient smtpClient = null;
             try
             {
-                smtpClient = new SmtpClient(server, port, true);
+                smtpClient = new SmtpClient(smtpServerName, smtpPort, true);
            
                 smtpClient.Authorize(user, keyword);
             }
             catch (Exception ex) {
                 this.noUser.Visibility = Visibility.Visible;
                 this.hasUser.Visibility = Visibility.Hidden;
+                String exs = ex.ToString();
+                this.receiveBox.ItemsSource = null;
                 return false;
             }
             this.client = smtpClient;
@@ -154,7 +168,7 @@ namespace EmailClient
                     this.client.Send(message);
                 }
                 catch (Exception ex) {
-                    client = new SmtpClient(server, port, true);
+                    client = new SmtpClient(smtpServerName, smtpPort, true);
                     client.Authorize(user, keyword);
                     continue;
                 }
@@ -174,6 +188,8 @@ namespace EmailClient
             private void Login(object sender, RoutedEventArgs e)
         {
             InputWindow input = new InputWindow(this);
+            if (hasLogin == true)
+                input.Title = "切换账户";
             input.ShowDialog();
         }
         private void cleanEmail(object sender, RoutedEventArgs e)

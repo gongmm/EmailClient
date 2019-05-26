@@ -5,11 +5,13 @@
     <Color x:Key="lightest">#6A94D4</Color>
     <Color x:Key="lighter">#437DD4</Color>
     <Color x:Key="deeper">#0F4DA8</Color>
-    <Color x:Key="deepest">#052F6D</Color>
+    <!--Color x:Key="deepest">#052F6D</Color-->
+    <Color x:Key="deepest">#0C5AA6</Color>
     <SolidColorBrush x:Key="lightestBrush" >#6A94D4</SolidColorBrush>
     <SolidColorBrush x:Key="lighterBrush" >#437DD4</SolidColorBrush>
     <SolidColorBrush x:Key="deeperBrush" >#0F4DA8</SolidColorBrush>
-    <SolidColorBrush x:Key="deepestBrush" >#052F6D</SolidColorBrush>
+    <!--SolidColorBrush x:Key="deepestBrush" >#052F6D</SolidColorBrush-->
+    <SolidColorBrush x:Key="deepestBrush" >#0C5AA6</SolidColorBrush>
     <!--关闭按钮-->
         <Style x:Key="CloseButton">
         <Setter Property="Button.Template">

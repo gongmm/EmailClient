@@ -4,45 +4,7 @@
     <SolidColorBrush x:Key="TransparentBrush" Color="#00000000" />
     <SolidColorBrush x:Key="HalfTransparentBrush" Color="#64000000" />
 
-    <!--GeometryGroup x:Key="CircleClip" FillRule="Nonzero">
-        <EllipseGeometry RadiusX="25" RadiusY="25" Center="25,25"/>
-    </>
-
-
-    <ControlTemplate x:Key="CircleButtonTemplate">
-        <Border Name="Border" BorderBrush="{StaticResource TransparentBrush}" BorderThickness="2"
-       CornerRadius="2" Background="{StaticResource TransparentBrush}">
-            <Grid>
-                <ContentPresenter  Margin="{TemplateBinding Button.Padding}"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center"
-          RecognizesAccessKey="True" Content="{TemplateBinding Button.Content}"></ContentPresenter>
-              
-            </Grid>
-        </Border>
-
-        <ControlTemplate.Triggers>
-            <Trigger Property="Button.IsMouseOver" Value="True">
-                <Setter TargetName="Border" Property="Button.Foreground"
-           Value="#00000000" />
-            </Trigger>
-            <Trigger Property="Button.IsPressed" Value="True">
-                <Setter TargetName="Border" Property="Button.Foreground"
-           Value="#50000000" />
-                <Setter TargetName="headerPic" Property="Opacity" Value="0.5"/-->
-            <!--/Trigger>
-            <Trigger Property="Button.IsEnabled" Value="False">
-                <Setter TargetName="Border" Property="Background"
-           Value="#00000000"></Setter>
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate-->
-
-    <!--Style x:Key="CircleButtonStyle" >
-        <Setter Property="Button.Template" Value="{StaticResource CircleButtonTemplate}"/>
-        <Setter Property="Button.Background" Value="#00000000"/>
-        <Setter Property="Button.BorderBrush" Value="#00000000"/>
-    </Style-->
+   
     <Color x:Key="lightest">#D1EDE1</Color>
     <Color x:Key="lighter">#7BC5AE</Color>
     <Color x:Key="deeper">#028C6A</Color>
@@ -51,12 +13,73 @@
     <SolidColorBrush x:Key="lighterBrush" >#7BC5AE</SolidColorBrush>
     <SolidColorBrush x:Key="deeperBrush" >#028C6A</SolidColorBrush>
     <SolidColorBrush x:Key="deepestBrush" >#003E19</SolidColorBrush>
+    <!--header头像控件-->
+        <Style x:Key="headerStyle">
+            <Setter Property="Button.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid>
+                            <Image Name="headerPic" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Images/header.png"  Width="40"></Image>
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsMouseOver" Value="True"
+                                                    >
+                                <Setter TargetName="headerPic" Property="Source" Value="pack://application:,,,/Images/header-gray.png"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+        </Style>
+    <!--add添加控件-->
+    <Style x:Key="addButtonStyle">
+        <Setter Property="Button.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Image Name="addPic" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Images/add.png"  Width="40"></Image>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsMouseOver" Value="True"
+                                                    >
+                            <Setter TargetName="addPic" Property="Source" Value="pack://application:,,,/Images/add-gray.png"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--update刷新控件-->
+    <Style x:Key="updateStyle">
+        <Setter Property="Button.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Image Margin="5" Name="updatePic" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Images/update.png"  Width="30"></Image>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsMouseOver" Value="True"
+                                                    >
+                            <Setter TargetName="updatePic" Property="Source" Value="pack://application:,,,/Images/update-gray.png"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+            </Setter.Value>
+        </Setter>
+    </Style>
     <!--寻常控件-->
         <ControlTemplate x:Key="NormalButton">
         <ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding Button.Content}"></ContentPresenter>
     </ControlTemplate>
-    <!--寻常按钮-->
-        <ControlTemplate x:Key="NormalItemButton">
+    
+        <!--寻常按钮-->
+    <ControlTemplate x:Key="NormalItemButton">
         <ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding ListBoxItem.Content}"></ContentPresenter>
     </ControlTemplate>
     <!--输入框-->

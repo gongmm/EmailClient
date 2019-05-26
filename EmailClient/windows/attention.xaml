@@ -10,16 +10,17 @@
         Background="Transparent"
          WindowStartupLocation="CenterScreen" 
         Template="{StaticResource WindowTemplate}"
-        Title="提 醒"  FontFamily="Microsoft YaHei"  Height="200" Width="300" Icon="pack://application:,,,/Images/attention.png">
+        Title="提 醒"  FontFamily="Microsoft YaHei"  Height="150" Width="250" Icon="pack://application:,,,/Images/attention.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border Margin="10" CornerRadius="5,5,5,5" BorderBrush="{StaticResource lightestBrush}">
+        <Border Margin="10" Grid.Row="1"  CornerRadius="5,5,5,5" BorderBrush="{StaticResource lightestBrush}">
             <TextBox  FontFamily="Microsoft YaHei" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="0" TextWrapping="Wrap" IsReadOnly="True"  Name="WindowContent" Padding="10"></TextBox>
         </Border>
-        <Grid Grid.Row="1" Margin="60,0,60,30">
+        <Grid Grid.Row="2" Margin="60,0,60,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
