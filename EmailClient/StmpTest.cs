@@ -22,7 +22,7 @@ namespace EmailClient
                 //smtpClient.AuthType = AuthType.AuthPlain;
                 try
                 {
-                    smtpClient.Authorize("gnaizgnaw@163.com", "610319MM");
+                    smtpClient.Authorize("gnaizgnaw@163.com", "password");
                 }
                 catch(Exception e)
                 {
