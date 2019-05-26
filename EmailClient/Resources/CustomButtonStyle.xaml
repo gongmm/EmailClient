@@ -19,7 +19,7 @@
                 <Setter.Value>
                     <ControlTemplate>
                         <Grid>
-                            <Image Name="headerPic" RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Images/header.png"  Width="40"></Image>
+                            <Image Name="headerPic" Margin="5,0,0,0"  RenderOptions.BitmapScalingMode="HighQuality" Source="pack://application:,,,/Images/header.png"  Width="40"></Image>
 
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -77,8 +77,15 @@
         <ControlTemplate x:Key="NormalButton">
         <ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding Button.Content}"></ContentPresenter>
     </ControlTemplate>
-    
-        <!--寻常按钮-->
+
+    <!--寻常控件-->
+    <!--ControlTemplate x:Key="NormalTip">
+        <Grid Background="Transparent">
+            <ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding Button.Content}"></ContentPresenter>
+        </Grid>
+    </ControlTemplate-->
+
+    <!--寻常按钮-->
     <ControlTemplate x:Key="NormalItemButton">
         <ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding ListBoxItem.Content}"></ContentPresenter>
     </ControlTemplate>

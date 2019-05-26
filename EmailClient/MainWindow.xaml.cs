@@ -50,14 +50,15 @@ namespace EmailClient
             this.hasLogin = status;
             if (status)
             {
-                this.UserLogin.Text = user;
+                String userName = user.Substring(0,user.IndexOf("@"));
+                this.UserLogin.Content = userName;
                 this.SendButton.Visibility = Visibility.Visible;
                 this.SendButton.IsEnabled = true;
-                this.CleanButton.Visibility = Visibility.Visible;
+                this.CleanButton.Visibility = Visibility.Hidden;
                 this.CleanButton.IsEnabled = true;
             }
             else {
-                this.UserLogin.Text = "未登录";
+                this.UserLogin.Content = "未登录";
             }
         }
         public void setPort(int port)
@@ -211,8 +212,11 @@ namespace EmailClient
             this.ContentText.Text = "";
            this.SendButton.Visibility = Visibility.Visible;
             this.SendButton.IsEnabled = true;
+            this.CleanButton.Visibility = Visibility.Hidden;
+            this.CleanButton.IsEnabled = false;
+            /*
             this.CleanButton.Visibility = Visibility.Visible;
-            this.CleanButton.IsEnabled = true;
+            this.CleanButton.IsEnabled = true;*/
         }
         private void closeWindow(object sender, RoutedEventArgs e)
         {
@@ -240,7 +244,7 @@ namespace EmailClient
         {
             InitializeComponent();
             if (user == null)
-                this.UserLogin.Text = "未登录";
+                this.UserLogin.Content = "未登录";
                       this.emails.Height = this.Height - 50 - 50-30;
                       List<Email> emails = new List<Email>();
                        Email email = new Email();
@@ -335,7 +339,7 @@ namespace EmailClient
                 return emails;
             }
             else {
-                this.UserLogin.Text = "未登录";
+                this.UserLogin.Content = "未登录";
                 return null;
             }
         }

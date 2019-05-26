@@ -22,8 +22,8 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <!--左部工具栏-->
         <!--ListBox Margin="0,0,0,0"  Grid.Column="0" Background="{StaticResource deepestBrush}"  -->
@@ -33,28 +33,34 @@
             <Grid Name="add">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Button Click="Login" Style="{StaticResource headerStyle}">
-                    <Button.ToolTip>
-                        <Grid Margin="0">
-                            <Border CornerRadius="10,10,10,10" 
+                    <!--Button.ToolTip>
+                        <ToolTip  Template="{StaticResource NormalTip}">
+                            <Grid Margin="0">
+                                <Border CornerRadius="10,10,10,10" 
                                     BorderBrush="{StaticResource lightestBrush}" 
                                     BorderThickness="2">
-                                <TextBox HorizontalContentAlignment="Center" 
+                                    <TextBox HorizontalContentAlignment="Center" 
                                          VerticalContentAlignment="Center" BorderThickness="0"
                                          TextWrapping="Wrap" IsReadOnly="True"
                                          Padding="10" Name="UserLogin"></TextBox>
 
-                            </Border>
-                        </Grid>
-                    </Button.ToolTip>
+                                </Border>
+                            </Grid>
+                        </ToolTip>
+                    </Button.ToolTip-->
+                    
+                    
 
                     <!--Image Name="headerPic" RenderOptions.BitmapScalingMode="HighQuality" Source="Images/header.png"  Width="30"></Image-->
                 </Button >
-                <StackPanel Width="100" Height="50" Grid.Column="1"></StackPanel>
-                <Button Click="createNewEmail" Grid.Column="2" Style="{StaticResource addButtonStyle}">
+                <Label Name="UserLogin" Grid.Column="1" Foreground="White" FontFamily="Microsoft YaHei" FontSize="15" VerticalAlignment="Bottom">未登录</Label>
+                <!--StackPanel Width="100" Height="50" Grid.Column="2"></StackPanel-->
+                <Button Click="createNewEmail" Grid.Column="3" Style="{StaticResource addButtonStyle}">
                     <!--Canvas  Width="50" Height="50">
                         <Path Name="line1" Stroke="White" StrokeThickness="1">
                             <Path.Data>

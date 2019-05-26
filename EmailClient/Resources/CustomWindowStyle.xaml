@@ -135,7 +135,7 @@
 
     <ControlTemplate x:Key="WindowTemplate" TargetType="{x:Type Window}">
         <Border Width="Auto" Height="Auto" Name="windowFrame"    
-          BorderBrush="{StaticResource deepestBrush}" BorderThickness="2"
+          BorderBrush="{StaticResource deepestBrush}" BorderThickness="2" Background="{StaticResource deepestBrush}"
         >
             <Grid>
                 <Grid.RowDefinitions>
@@ -152,7 +152,7 @@
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                     <!--标题图片-->
-                        <Image Width="25" Grid.Column="0" Source="{TemplateBinding Icon}"/>
+                        <Image Margin="5,0,0,0" Width="20" Grid.Column="0" Source="{TemplateBinding Icon}"/>
                     <!--标题-->
                     <TextBlock MouseLeftButtonDown="titleBar_MouseLeftButtonDown" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="15" Foreground="White"  Padding="5" Text="{TemplateBinding Title}"></TextBlock>
                     <Button Grid.Column="2" Style="{StaticResource MinimumButton}" VerticalAlignment="Center" HorizontalAlignment="Center" 
