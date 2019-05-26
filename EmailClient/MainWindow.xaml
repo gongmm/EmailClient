@@ -78,7 +78,7 @@
                 <Button Margin="0,0,0,0" Template="{StaticResource NormalButton}" FontFamily="Microsoft YaHei" Padding="10"  FontSize="17" FontWeight="Bold" Foreground="White">
                     收 件 箱
                 </Button>
-                <Button Grid.Column="2" Template="{StaticResource NormalButton}">
+                <Button Grid.Column="2" Template="{StaticResource NormalButton}" Click="refreshMailIntros">
                     <Image RenderOptions.BitmapScalingMode="HighQuality"  Source="Images/update.png" Margin="10"  Width="20"></Image>
                    
                 </Button>

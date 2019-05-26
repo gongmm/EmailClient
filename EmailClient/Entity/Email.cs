@@ -13,5 +13,6 @@ namespace EmailClient.Entity
         public String Topic { get; set; }
         public String Content{ get; set;}
         public String ContentBrief { get; set; }
+        public long pos;
     }
 }

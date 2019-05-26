@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EmailClient.Entity;
 using EmailClient.windows;
+using EmailClient;
 
 /* Email one = new Email();
           one.Sender = "一个新的";
@@ -206,8 +207,11 @@ namespace EmailClient
             Email email=(Email)this.receiveBox.SelectedItem;
             if (email == null)
                 return;
-            this.SenderText.Text = email.Sender;
-            this.ContentText.Text = email.Content;
+            long pos = email.pos;
+            EmailClient.Program.connectPop(user, keyword);
+            EmailClient.Program.EmailDetail detail = EmailClient.Program.GetDetail(pos);
+            this.SenderText.Text = detail.From;
+            this.ContentText.Text = detail.Body;
             this.TopicText.Text = email.Topic;
             this.ReceiveText.Text = email.Receiver;
             this.SendButton.Visibility = Visibility.Hidden;
@@ -221,82 +225,109 @@ namespace EmailClient
             InitializeComponent();
             if (user == null)
                 this.UserLogin.Text = "未登录";
-            this.emails.Height = this.Height - 50 - 50-30;
-            List<Email> emails = new List<Email>();
-            Email email = new Email();
-            email.Sender = "<2016302580101@whu.edu.cn>";
-            email.Content = "This is a test!";
-            int length = 30;
-            if (email.Content.Length < 30)
-                length = email.Content.Length;
-            email.ContentBrief = email.Content.Substring(0,length);
-            emails.Add(email);
-            email = new Email();
-            email.Sender = "<test@whu.edu.cn>";
-            email.Topic = "test2";
-            email.Content = "This is a test!";
-           length = 30;
-            if (email.Content.Length < 30)
-                length = email.Content.Length;
-            email.ContentBrief = email.Content.Substring(0, length);
-            emails.Add(email);
-            email = new Email();
-            email.Sender = "<able@whu.edu.cn>";
-            email.Topic = "test3";
-            email.Content = "This is a test!";
-            length = 30;
-            if (email.Content.Length < 30)
-                length = email.Content.Length;
-            email.ContentBrief = email.Content.Substring(0, length);
-            emails.Add(email);
-            email = new Email();
-            email.Sender = "<newone@whu.edu.cn>";
-            email.Topic = "test4";
-            email.Content = "This is a test!";
-            length = 30;
-            if (email.Content.Length < 30)
-                length = email.Content.Length;
-            email.ContentBrief = email.Content.Substring(0, length);
-            emails.Add(email);
-            email = new Email();
-            email.Sender = "<another@whu.edu.cn>";
-            email.Topic = "test";
-            email.Content = "This is a test!";
-            length = 30;
-            if (email.Content.Length < 30)
-                length = email.Content.Length;
-            email.ContentBrief = email.Content.Substring(0, length);
-            emails.Add(email);
-            email = new Email();
-            email.Sender = "<thisis@whu.edu.cn>";
-            email.Topic = "无主题";
-            email.Content = "This is a test!";
-            length = 30;
-            if (email.Content.Length < 30)
-                length = email.Content.Length;
-            email.ContentBrief = email.Content.Substring(0, length);
-            emails.Add(email);
-            email = new Email();
-            email.Sender = "<tryit@whu.edu.cn>";
-            email.Topic = "无主题";
-            email.Content = "This is a test!";
-            length = 30;
-            if (email.Content.Length < 30)
-                length = email.Content.Length;
-            email.ContentBrief = email.Content.Substring(0, length);
-            emails.Add(email);
-            email = new Email();
-            email.Sender = "<ok@whu.edu.cn>";
-            email.Topic = "无主题";
-            email.Content = "This is a test!";
-            length = 30;
-            if (email.Content.Length < 30)
-                length = email.Content.Length;
-            email.ContentBrief = email.Content.Substring(0, length);
-            emails.Add(email);
+                      this.emails.Height = this.Height - 50 - 50-30;
+                      List<Email> emails = new List<Email>();
+                       Email email = new Email();
+                       email.Sender = "<2016302580101@whu.edu.cn>";
+                       email.Content = "This is a test!";
+                       int length = 30;
+                       if (email.Content.Length < 30)
+                           length = email.Content.Length;
+                       email.ContentBrief = email.Content.Substring(0,length);
+                       emails.Add(email);
+                       email = new Email();
+                       email.Sender = "<test@whu.edu.cn>";
+                       email.Topic = "test2";
+                       email.Content = "This is a test!";
+                      length = 30;
+                       if (email.Content.Length < 30)
+                           length = email.Content.Length;
+                       email.ContentBrief = email.Content.Substring(0, length);
+                       emails.Add(email);
+                       email = new Email();
+                       email.Sender = "<able@whu.edu.cn>";
+                       email.Topic = "test3";
+                       email.Content = "This is a test!";
+                       length = 30;
+                       if (email.Content.Length < 30)
+                           length = email.Content.Length;
+                       email.ContentBrief = email.Content.Substring(0, length);
+                       emails.Add(email);
+                       email = new Email();
+                       email.Sender = "<newone@whu.edu.cn>";
+                       email.Topic = "test4";
+                       email.Content = "This is a test!";
+                       length = 30;
+                       if (email.Content.Length < 30)
+                           length = email.Content.Length;
+                       email.ContentBrief = email.Content.Substring(0, length);
+                       emails.Add(email);
+                       email = new Email();
+                       email.Sender = "<another@whu.edu.cn>";
+                       email.Topic = "test";
+                       email.Content = "This is a test!";
+                       length = 30;
+                       if (email.Content.Length < 30)
+                           length = email.Content.Length;
+                       email.ContentBrief = email.Content.Substring(0, length);
+                       emails.Add(email);
+                       email = new Email();
+                       email.Sender = "<thisis@whu.edu.cn>";
+                       email.Topic = "无主题";
+                       email.Content = "This is a test!";
+                       length = 30;
+                       if (email.Content.Length < 30)
+                           length = email.Content.Length;
+                       email.ContentBrief = email.Content.Substring(0, length);
+                       emails.Add(email);
+                       email = new Email();
+                       email.Sender = "<tryit@whu.edu.cn>";
+                       email.Topic = "无主题";
+                       email.Content = "This is a test!";
+                       length = 30;
+                       if (email.Content.Length < 30)
+                           length = email.Content.Length;
+                       email.ContentBrief = email.Content.Substring(0, length);
+                       emails.Add(email);
+                       email = new Email();
+                       email.Sender = "<ok@whu.edu.cn>";
+                       email.Topic = "无主题";
+                       email.Content = "This is a test!";
+                       length = 30;
+                       if (email.Content.Length < 30)
+                           length = email.Content.Length;
+                       email.ContentBrief = email.Content.Substring(0, length);
+                       emails.Add(email);
+          emails = getMailIntros();
+           this.emailList = emails;
+            this.receiveBox.ItemsSource = emails;
+        }
+        private List<Email> getMailIntros() {
+            if (user != null && keyword != null)
+            {
+                EmailClient.Program.connectPop(user, keyword);
+                List<EmailClient.Program.SimpleIntro> list = new List<EmailClient.Program.SimpleIntro>();
+                list = EmailClient.Program.listIntros();
+                List<Email> emails = new List<Email>(list.Count);
+                for (int i = 0; i <= list.Count; i++)
+                {
+                    emails[i].pos = list[i].pos;
+                    emails[i].Sender = list[i].sender;
+                    emails[i].Topic = list[i].title;
+                    emails[i].ContentBrief = list[i].subject;
+                }
+                return emails;
+            }
+            else {
+                this.UserLogin.Text = "未登录";
+                return null;
+            }
+        }
+        private void refreshMailIntros(object sender, RoutedEventArgs e) {
+            List<Email> emails = getMailIntros();
             this.emailList = emails;
             this.receiveBox.ItemsSource = emails;
         }
-        
+
     }
 }

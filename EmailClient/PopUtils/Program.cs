@@ -12,6 +12,7 @@ namespace EmailClient
             public string title;
             public string subject;
             public long pos;
+            public string sender;
 
         };
 
@@ -38,6 +39,7 @@ namespace EmailClient
                 s.title = pop3Client.From;
                 s.subject = pop3Client.Subject;
                 s.pos = i;
+                s.sender = pop3Client.From;
                 list.Add(s);
             }
             return list;
@@ -61,7 +63,7 @@ namespace EmailClient
             emailDetail.From = pop3Client.From;
             emailDetail.To = pop3Client.To;
             emailDetail.Subject = pop3Client.Subject;
-            emailDetail.Subject = pop3Client.Body;
+            emailDetail.Body = pop3Client.Body;
             return emailDetail;
         }
 
@@ -75,8 +77,8 @@ namespace EmailClient
         
 //        public static void Main(string[] args)
 //        {
-//            connectPop("2016302580098@whu.edu.cn","ilearnai1973#");
-//            List<SimpleIntro>  list=new List<SimpleIntro>();
+ //          connectPop("2016302580098@whu.edu.cn","ilearnai1973#");
+   //         List<SimpleIntro>  list=new List<SimpleIntro>();
 //            list = listIntros();
 //            Console.WriteLine("\n");
 //            Console.WriteLine(list[0].pos);
