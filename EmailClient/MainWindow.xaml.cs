@@ -34,6 +34,7 @@ namespace EmailClient
         public double normalleft;
         public double normalwidth;
         public double normalheight;
+        private long thispos;
         private int port = 25;
         private List<Email> emailList=null;
         private String user = null;
@@ -196,9 +197,8 @@ namespace EmailClient
         private void cleanEmail(object sender, RoutedEventArgs e)
         {
 
-            Email email = (Email)this.receiveBox.SelectedItem;
-            long pos = email.pos;
-            bool isDeleted = EmailClient.Program.deleteOne(pos);
+            bool isDeleted = EmailClient.Program.deleteOne(thispos);
+            
             this.SenderText.Text = "";
             this.ReceiveText.Text = "";
             this.TopicText.Text = "";
@@ -230,6 +230,7 @@ namespace EmailClient
             if (email == null)
                 return;
             long pos = email.pos;
+            thispos = pos;
             EmailClient.Program.connectPop(user, keyword);
             EmailClient.Program.EmailDetail detail = EmailClient.Program.GetDetail(pos);
             this.SenderText.Text = detail.From;
@@ -238,12 +239,13 @@ namespace EmailClient
             this.ReceiveText.Text = detail.To;
             this.SendButton.Visibility = Visibility.Hidden;
             this.SendButton.IsEnabled = false;
-            this.CleanButton.Visibility = Visibility.Hidden;
-            this.CleanButton.IsEnabled = false;
-       
+            this.CleanButton.Visibility = Visibility.Visible;
+            this.CleanButton.IsEnabled = true;
+
+
         }
 
-        
+
         public MainWindow()
         {
             InitializeComponent();
